@@ -130,13 +130,9 @@ export default function Pricing() {
                   Training <strong>($50/hr)</strong>
                 </h5>
                 <p>
-                  If you are just simply interested in learning more about taking photos, or need help getting your
-                  social media site setup, or in general have any photography related questions - I can help you out
-                  with that!
-                  <br />
-                  <br />I can help you learn how to use your camera, process photos, create instagram stories, crop
-                  images correctly, and a lot more! I would love to knowledge share and help get you where you
-                  ultimately would like to be with your project!
+                  I can help you learn how to use your camera, process photos, create instagram stories, crop images
+                  correctly, and a lot more! I would love to knowledge share and help get you where you ultimately would
+                  like to be with your project!
                 </p>
               </div>
             </div>

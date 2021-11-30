@@ -36,13 +36,15 @@ export default function Home() {
       "gallery/composite/4.jpg",
     ],
   };
+  const allSldieImages = [gallery["Day"], gallery["Composite"], "img/home-slideshow/1.jpg"].flat();
+  const homeSlideUrl = allSldieImages[Math.floor(Math.random() * allSldieImages.length)];
   const [menuCategory, setMenuCategory] = useState(Object.keys(gallery)[0]);
 
   return (
     <>
       <div className="ppb_wrapper hasbg">
         <div id="page_caption" className="hasbg parallax baseline ppb_enable">
-          <div id="bg_regular" style={{ backgroundImage: "url(img/home-slideshow/1.jpg)" }}></div>
+          <div id="bg_regular" style={{ backgroundImage: `url(${homeSlideUrl})` }}></div>
         </div>
         <div className="one withsmallpadding ppb_header">
           <div className="standard_wrapper">
