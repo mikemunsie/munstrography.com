@@ -36,8 +36,8 @@ export default function Home() {
       "gallery/composite/4.jpg",
     ],
   };
-  const allSldieImages = [gallery["Day"], gallery["Composite"], "img/home-slideshow/1.jpg"].flat();
-  const homeSlideUrl = allSldieImages[Math.floor(Math.random() * allSldieImages.length)];
+  const allSlideImages = [gallery["Day"], gallery["Composite"], "img/home-slideshow/1.jpg"].flat();
+  const homeSlideUrl = allSlideImages[Math.floor(Math.random() * allSlideImages.length)];
   const [menuCategory, setMenuCategory] = useState(Object.keys(gallery)[0]);
 
   return (
@@ -69,9 +69,11 @@ export default function Home() {
         </div>
 
         {/*2215x1587*/}
-
+        <div className="clear" />
         <div id="page_content_wrapper" className="wide">
-          <Menu onClick={setMenuCategory} items={Object.keys(gallery)} selectedItem={menuCategory} />
+          <div className="flex" style={{ marginBottom: 30 }}>
+            <Menu onClick={setMenuCategory} items={Object.keys(gallery)} selectedItem={menuCategory} />
+          </div>
           <div className="inner">
             <div className="inner_wrapper nopadding">
               <TwoColumnGallery urls={gallery[menuCategory]} />

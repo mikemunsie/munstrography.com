@@ -1,6 +1,10 @@
 @import "reset.css";
 @import "wordpress.css";
 
+.flex {
+	display: flex;
+}
+
 /*------------------------------------------------------------------
 [Color codes]
 

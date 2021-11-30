@@ -28,7 +28,7 @@ export default function Menu(props: MenuProps) {
   });
 
   return (
-    <ul id="portfolio_wall_filters" className="portfolio-main filter full">
+    <ul style={{ margin: "auto" }} className="portfolio-main filter full">
       {listItems}
     </ul>
   );
