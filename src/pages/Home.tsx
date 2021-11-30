@@ -14,16 +14,27 @@ export default function Home() {
       "gallery/day/6.jpg",
     ],
     Night: [
-      "gallery/day/3.jpg",
-      "gallery/day/3.jpg",
-      "gallery/day/3.jpg",
-      "gallery/day/3.jpg",
-      "gallery/day/1.jpg",
-      "gallery/day/6.jpg",
+      "gallery/night/3.jpg",
+      "gallery/night/2.jpg",
+      "gallery/night/1.jpg",
+      "gallery/night/4.jpg",
+      "gallery/night/6.jpg",
+      "gallery/night/5.jpg",
     ],
-    Interior: ["gallery/day/2.jpg"],
-    Commercial: [],
-    Composite: ["gallery/day/6.jpg"],
+    Interior: [
+      "gallery/interior/4.jpg",
+      "gallery/interior/3.jpg",
+      "gallery/interior/5.jpg",
+      "gallery/interior/1.jpg",
+      "gallery/interior/2.jpg",
+      "gallery/interior/6.jpg",
+    ],
+    Composite: [
+      "gallery/composite/2.jpg",
+      "gallery/composite/3.jpg",
+      "gallery/composite/1.jpg",
+      "gallery/composite/4.jpg",
+    ],
   };
   const [menuCategory, setMenuCategory] = useState(Object.keys(gallery)[0]);
 

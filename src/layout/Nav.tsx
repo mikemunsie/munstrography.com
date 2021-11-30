@@ -28,6 +28,9 @@ export default function Nav(
       <li className={`megamenu col4 menu-item ${isCurrentPageClass(RoutePaths.pricing)}`}>
         <NavLink to={RoutePaths.pricing}>Pricing</NavLink>
       </li>
+      <li className={`megamenu col4 menu-item ${isCurrentPageClass(RoutePaths.about)}`}>
+        <NavLink to={RoutePaths.about}>About</NavLink>
+      </li>
       <li className={`megamenu col4 menu-item ${isCurrentPageClass(RoutePaths.contact)}`}>
         <NavLink to={RoutePaths.contact}>Contact</NavLink>
       </li>

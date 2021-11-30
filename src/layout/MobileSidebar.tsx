@@ -1,28 +1,24 @@
-import InstagramFeed from "./InstagramFeed";
+import Nav from "./Nav";
+import SocialLinks from "./SocialLinks";
 
 export default function MobileSidebar() {
   return (
-    <div className="sidebar_wrapper">
-      <div className="sidebar">
-        <div className="content">
-          <ul className="sidebar_widget">
-            <li id="text-10" className="widget widget_text">
-              <div className="textwidget">
-                <div>
-                  <img src="upload/signature.png" alt="" />
+    <>
+      <a id="close_mobile_menu" href="javascript:;"></a>
+      <div className="mobile_menu_wrapper">
+        <div className="menu-side-mobile-menu-container">
+          <Nav id="mobile_main_menu" className="mobile_main_nav" />
+          <div className="page_content_wrapper">
+            <div className="sidebar_wrapper">
+              <div className="sidebar">
+                <div className="content">
+                  <SocialLinks />
                 </div>
               </div>
-            </li>
-            <li id="photography_instagram-5" className="widget Photography_Instagram">
-              <h2 className="widgettitle">
-                <span>Instagram</span>
-              </h2>
-              <InstagramFeed />
-              <br className="clear" />
-            </li>
-          </ul>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

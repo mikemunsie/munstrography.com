@@ -1,5 +1,5 @@
-import { PropsWithChildren } from "react";
-import { NavLink } from "react-router-dom";
+import { useEffect } from "react";
+import { NavLink, useLocation } from "react-router-dom";
 
 import styled from "styled-components";
 
@@ -7,6 +7,7 @@ import { RoutePaths } from "../routes/paths";
 import AppRoutes from "../routes/Routes";
 import MobileSidebar from "./MobileSidebar";
 import Nav from "./Nav";
+import SocialLinks from "./SocialLinks";
 
 const CustomLogo = styled.img`
   width: 192px;
@@ -19,18 +20,17 @@ const CustomLogo = styled.img`
   }
 `;
 
-export default function Layout(props: PropsWithChildren<any>) {
+export default function Layout() {
+  const location = useLocation();
+
+  useEffect(() => {
+    const el = document.querySelector("#close_mobile_menu") as HTMLButtonElement;
+    el.click();
+  }, [location.pathname]);
+
   return (
     <div className="layout">
-      <a id="close_mobile_menu" href="javascript:;"></a>
-      <div className="mobile_menu_wrapper">
-        <div className="menu-side-mobile-menu-container">
-          <Nav id="mobile_main_menu" className="mobile_main_nav" />
-          <div className="page_content_wrapper">
-            <MobileSidebar />
-          </div>
-        </div>
-      </div>
+      <MobileSidebar />
       <div id="wrapper">
         <div className="header_style_wrapper">
           <div className="top_bar">
@@ -70,22 +70,9 @@ export default function Layout(props: PropsWithChildren<any>) {
         </div>
         <div className="ppb_wrapper">
           <AppRoutes />
-          <div className="footer_bar single_gallery noborder">
+          <div className="footer_bar noborder">
             <div className="footer_bar_wrapper ">
-              <div className="social_wrapper">
-                <ul>
-                  <li className="facebook">
-                    <a target="_blank" href="index.html">
-                      <i className="fa fa-facebook-official"></i>
-                    </a>
-                  </li>
-                  <li className="instagram">
-                    <a target="_blank" title="Instagram" href="index.html">
-                      <i className="fa fa-instagram"></i>
-                    </a>
-                  </li>
-                </ul>
-              </div>
+              <SocialLinks />
               <div id="copyright">© Munstrography</div>
               <br className="clear" />
               <a id="toTop">
