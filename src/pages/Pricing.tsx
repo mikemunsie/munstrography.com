@@ -122,7 +122,31 @@ export default function Pricing() {
             </div>
           </div>
         </div>
-        <div className="one_third last ppb_text">
+      </div>
+
+      <div className="clear" style={{ paddingTop: 30 }}></div>
+
+      <div className="standard_wrapper">
+        <h2 className="ppb_title">Other Services</h2>
+        <hr className="title_break" />
+      </div>
+      <div className="standard_wrapper">
+        <div className="one_third ppb_text">
+          <div className="page_content_wrapper">
+            <div className="inner">
+              <div>
+                <h5>
+                  Clean Edits <strong>($5 / Edit)</strong>
+                </h5>
+                <p>
+                  If you have some photos of your ride that you really enjoy but don't know how to edit, let me take a
+                  look at them! For $5 a shot, I will transform your photo into a clean edit that's instagram worthy!
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="one_third ppb_text">
           <div className="page_content_wrapper">
             <div className="inner">
               <div>
