@@ -19,7 +19,7 @@ export default function Contact() {
             <NavLink to={RoutePaths.pricing}>
               <strong>Pricing</strong>
             </NavLink>{" "}
-            section ! You can email me or contact me via social media.
+            section! You can email me or contact me via social media.
             <br />
             <br />
             <a className="button" href="mailto:munstrography@gmail.com">
