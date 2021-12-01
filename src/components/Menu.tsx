@@ -14,12 +14,7 @@ export default function Menu(props: MenuProps) {
   const listItems = items.map((item) => {
     return (
       <li key={item}>
-        <a
-          onClick={handleClick(item)}
-          className={item === selectedItem ? "active" : ""}
-          href="javascript:;"
-          data-filter=""
-        >
+        <a rel="button" onClick={handleClick(item)} className={item === selectedItem ? "active" : ""} data-filter="">
           {item}
         </a>
         <span className="separator">/</span>

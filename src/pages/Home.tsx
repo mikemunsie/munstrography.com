@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Menu from "../components/Menu";
 import TwoColumnGallery from "../components/TwoColumnGallery";
@@ -37,8 +37,12 @@ export default function Home() {
     ],
   };
   const allSlideImages = [gallery["Day"], gallery["Composite"], "img/home-slideshow/1.jpg"].flat();
-  const homeSlideUrl = allSlideImages[Math.floor(Math.random() * allSlideImages.length)];
+  const [homeSlideUrl, setHomeSlideUrl] = useState("");
   const [menuCategory, setMenuCategory] = useState(Object.keys(gallery)[0]);
+
+  useEffect(() => {
+    setHomeSlideUrl(allSlideImages[Math.floor(Math.random() * allSlideImages.length)]);
+  }, []);
 
   return (
     <>
