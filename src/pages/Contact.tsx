@@ -25,6 +25,10 @@ export default function Contact() {
             <a className="button" href="mailto:munstrography@gmail.com">
               Send me an email
             </a>
+            <br />
+            <br />
+            Or you can manually type in my email @ <a href="mailto:munstrography@gmail.com">munstrography@gmail.com</a>.
+            Your choice 🤙
           </p>
         </div>
       </div>
