@@ -15,7 +15,7 @@ export default function Pricing() {
                 </li>
                 <li className="price_row">
                   <strong>$</strong>
-                  <em className="exact_price">50</em>
+                  <em className="exact_price">80</em>
                   <em className="time"></em>
                 </li>
                 <li>One hour of photos</li>
@@ -40,7 +40,7 @@ export default function Pricing() {
                 </li>
                 <li className="price_row">
                   <strong>$</strong>
-                  <em className="exact_price">100</em>
+                  <em className="exact_price">150</em>
                   <em className="time"></em>
                 </li>
                 <li>1.5 hours of photos</li>

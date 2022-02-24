@@ -6,37 +6,47 @@ import TwoColumnGallery from "../components/TwoColumnGallery";
 export default function Home() {
   const gallery: Record<string, string[]> = {
     Day: [
-      "gallery/day/5.jpg",
-      "gallery/day/4.jpg",
+      "gallery/day/1.jpg",
       "gallery/day/2.jpg",
       "gallery/day/3.jpg",
-      "gallery/day/1.jpg",
+      "gallery/day/4.jpg",
+      "gallery/day/5.jpg",
       "gallery/day/6.jpg",
     ],
     Night: [
-      "gallery/night/3.jpg",
-      "gallery/night/2.jpg",
+      "gallery/night/5.jpg",
       "gallery/night/1.jpg",
+      "gallery/night/2.jpg",
+      "gallery/night/3.jpg",
       "gallery/night/4.jpg",
       "gallery/night/6.jpg",
-      "gallery/night/5.jpg",
     ],
     Interior: [
-      "gallery/interior/4.jpg",
+      "gallery/interior/7.jpg",
       "gallery/interior/3.jpg",
-      "gallery/interior/5.jpg",
       "gallery/interior/1.jpg",
       "gallery/interior/2.jpg",
       "gallery/interior/6.jpg",
     ],
+    Dreamy: [
+      "gallery/dreamy/1.jpg",
+      "gallery/dreamy/2.jpg",
+      "gallery/dreamy/4.jpg",
+      "gallery/dreamy/3.jpg",
+      "gallery/dreamy/5.jpg",
+      "gallery/dreamy/6.jpg",
+      "gallery/dreamy/7.jpg",
+    ],
     Composite: [
-      "gallery/composite/2.jpg",
-      "gallery/composite/3.jpg",
-      "gallery/composite/1.jpg",
+      "gallery/composite/6.jpg",
+      "gallery/composite/5.jpg",
       "gallery/composite/4.jpg",
+      "gallery/composite/3.jpg",
+      "gallery/composite/2.jpg",
+      "gallery/composite/1.jpg",
     ],
   };
-  const allSlideImages = [gallery["Day"], gallery["Composite"], "img/home-slideshow/1.jpg"].flat();
+  const allSlideImages = Object.values(gallery).flat();
   const [homeSlideUrl, setHomeSlideUrl] = useState("");
   const [menuCategory, setMenuCategory] = useState(Object.keys(gallery)[0]);
 
