@@ -3,6 +3,8 @@ import { NavLink, useLocation } from "react-router-dom";
 
 import styled from "styled-components";
 
+import WatermarkImg from "../images/watermark.png";
+import WatermarkWhiteImg from "../images/watermark-white.png";
 import { RoutePaths } from "../routes/paths";
 import AppRoutes from "../routes/Routes";
 import MobileSidebar from "./MobileSidebar";
@@ -23,10 +25,30 @@ const CustomLogo = styled.img`
 export default function Layout() {
   const location = useLocation();
 
+  function scrollListener() {
+    if (window.scrollY > 200) {
+      document.querySelector<HTMLDivElement>(".logo_wrapper.default")!.style.display = "none";
+      document.querySelector<HTMLDivElement>("#logo_transparent")!.style.display = "block";
+      document.querySelector<HTMLDivElement>("#logo_transparent .logo_wrapper")!.classList.remove("hidden");
+    } else {
+      document.querySelector<HTMLDivElement>(".logo_wrapper.default")!.style.display = "block";
+      document.querySelector<HTMLDivElement>("#logo_transparent")!.style.display = "none";
+      document.querySelector<HTMLDivElement>("#logo_transparent .logo_wrapper")!.classList.add("hidden");
+    }
+  }
+
   useEffect(() => {
+    scrollListener();
     const el = document.querySelector("#close_mobile_menu") as HTMLButtonElement;
     el.click();
   }, [location.pathname]);
+
+  useEffect(() => {
+    window.addEventListener("scroll", scrollListener);
+    return () => {
+      window.removeEventListener("scroll", scrollListener);
+    };
+  }, []);
 
   return (
     <div className="layout">
@@ -39,14 +61,14 @@ export default function Layout() {
                 <div id="logo_normal" className="logo_container">
                   <div className="logo_align">
                     <NavLink to={RoutePaths.home} id="custom_logo" className="logo_wrapper default">
-                      <CustomLogo src="img/watermark.png" alt="Logo" />
+                      <CustomLogo src={WatermarkImg} alt="Logo" />
                     </NavLink>
                   </div>
                 </div>
                 <div id="logo_transparent" className="logo_container">
                   <div className="logo_align">
                     <a id="custom_logo_transparent" className="logo_wrapper hidden" href="index.html">
-                      <CustomLogo src="img/watermark-white.png" alt="" />
+                      <CustomLogo src={WatermarkWhiteImg} alt="" />
                     </a>
                   </div>
                 </div>

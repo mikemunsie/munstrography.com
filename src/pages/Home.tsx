@@ -1,54 +1,67 @@
 import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
 import Menu from "../components/Menu";
 import TwoColumnGallery from "../components/TwoColumnGallery";
 
 export default function Home() {
+  const { gallery: galleryName } = useParams();
+  const navigate = useNavigate();
+
   const gallery: Record<string, string[]> = {
-    Day: [
-      "gallery/day/1.jpg",
-      "gallery/day/2.jpg",
-      "gallery/day/3.jpg",
-      "gallery/day/4.jpg",
-      "gallery/day/5.jpg",
-      "gallery/day/6.jpg",
+    day: [
+      require("../images/gallery/day/1.jpg").default,
+      require("../images/gallery/day/2.jpg").default,
+      require("../images/gallery/day/3.jpg").default,
+      require("../images/gallery/day/4.jpg").default,
+      require("../images/gallery/day/5.jpg").default,
+      require("../images/gallery/day/6.jpg").default,
     ],
-    Night: [
-      "gallery/night/5.jpg",
-      "gallery/night/1.jpg",
-      "gallery/night/2.jpg",
-      "gallery/night/3.jpg",
-      "gallery/night/4.jpg",
-      "gallery/night/6.jpg",
+    night: [
+      require("../images/gallery/night/1.jpg").default,
+      require("../images/gallery/night/2.jpg").default,
+      require("../images/gallery/night/3.jpg").default,
+      require("../images/gallery/night/4.jpg").default,
+      require("../images/gallery/night/5.jpg").default,
+      require("../images/gallery/night/6.jpg").default,
     ],
-    Interior: [
-      "gallery/interior/7.jpg",
-      "gallery/interior/3.jpg",
-      "gallery/interior/1.jpg",
-      "gallery/interior/2.jpg",
-      "gallery/interior/6.jpg",
+    interior: [
+      require("../images/gallery/interior/7.jpg").default,
+      require("../images/gallery/interior/3.jpg").default,
+      require("../images/gallery/interior/1.jpg").default,
+      require("../images/gallery/interior/2.jpg").default,
+      require("../images/gallery/interior/6.jpg").default,
     ],
-    Dreamy: [
-      "gallery/dreamy/1.jpg",
-      "gallery/dreamy/2.jpg",
-      "gallery/dreamy/4.jpg",
-      "gallery/dreamy/3.jpg",
-      "gallery/dreamy/5.jpg",
-      "gallery/dreamy/6.jpg",
-      "gallery/dreamy/7.jpg",
+    dreamy: [
+      require("../images/gallery/dreamy/1.jpg").default,
+      require("../images/gallery/dreamy/2.jpg").default,
+      require("../images/gallery/dreamy/4.jpg").default,
+      require("../images/gallery/dreamy/3.jpg").default,
+      require("../images/gallery/dreamy/5.jpg").default,
+      require("../images/gallery/dreamy/6.jpg").default,
+      require("../images/gallery/dreamy/7.jpg").default,
     ],
-    Composite: [
-      "gallery/composite/6.jpg",
-      "gallery/composite/5.jpg",
-      "gallery/composite/4.jpg",
-      "gallery/composite/3.jpg",
-      "gallery/composite/2.jpg",
-      "gallery/composite/1.jpg",
+    composite: [
+      require("../images/gallery/composite/6.jpg").default,
+      require("../images/gallery/composite/5.jpg").default,
+      require("../images/gallery/composite/4.jpg").default,
+      require("../images/gallery/composite/3.jpg").default,
+      require("../images/gallery/composite/2.jpg").default,
+      require("../images/gallery/composite/1.jpg").default,
     ],
   };
-  const allSlideImages = Object.values(gallery).flat();
+  let allSlideImages = Object.values(gallery).flat();
   const [homeSlideUrl, setHomeSlideUrl] = useState("");
-  const [menuCategory, setMenuCategory] = useState(Object.keys(gallery)[0]);
+  let menuCategory = galleryName || Object.keys(gallery)[0];
+  if (!gallery[galleryName as any]) {
+    menuCategory = Object.keys(gallery)[0];
+  } else {
+    allSlideImages = gallery[menuCategory];
+  }
+
+  function setMenuCategory(categoryName: string) {
+    navigate(`/gallery/${categoryName.toLowerCase()}`);
+  }
 
   useEffect(() => {
     setHomeSlideUrl(allSlideImages[Math.floor(Math.random() * allSlideImages.length)]);

@@ -97,7 +97,6 @@ jQuery(document).ready(function(){
 	}
 	
 	var logoHeight = jQuery('#custom_logo img').height();
-	var logoTransHeight = jQuery('#custom_logo_transparent img').height();
 	var logoMargin = parseInt(jQuery('#custom_logo').css('marginTop'));
 	var logoTransMargin = parseInt(jQuery('#custom_logo_transparent').css('marginTop'));
 	var menuPaddingTop = parseInt(jQuery('#menu_wrapper div .nav li > a').css('paddingTop'));
@@ -178,13 +177,12 @@ jQuery(document).ready(function(){
 					    jQuery('.top_bar').data('hasbg', 1);
 					    
 					    jQuery('#custom_logo').removeClass('hidden');
-					    jQuery('#custom_logo_transparent').addClass('hidden');
 					}
 					
 					if(jQuery('#tg_fixed_menu_color').val() == 'dark')
 					{
 						jQuery('#custom_logo').addClass('hidden');
-					    jQuery('#custom_logo_transparent').removeClass('hidden');
+
 					}
 					
 					if(jQuery(window).width()>960)
@@ -199,10 +197,8 @@ jQuery(document).ready(function(){
 				    
 				    jQuery('#custom_logo img').removeClass('zoom');
 				    jQuery('#custom_logo img').css('maxHeight', '');
-					jQuery('#custom_logo_transparent img').removeClass('zoom');
 				    
 				    jQuery('#custom_logo').css('marginTop', parseInt(logoMargin)+'px');
-					jQuery('#custom_logo_transparent').css('marginTop', parseInt(logoTransMargin)+'px');
 					
 					jQuery('#menu_wrapper div .nav > li > a').css('paddingTop', menuPaddingTop+'px');
 					jQuery('#menu_wrapper div .nav > li > a').css('paddingBottom', menuPaddingBottom+'px');;
@@ -211,7 +207,6 @@ jQuery(document).ready(function(){
 					{
 					    jQuery('.top_bar').addClass('hasbg');
 					    jQuery('#custom_logo').addClass('hidden');
-					    jQuery('#custom_logo_transparent').removeClass('hidden');
 					}
 					
 					if(jQuery('#tg_fixed_menu_color').val() == 'dark')
@@ -219,12 +214,10 @@ jQuery(document).ready(function(){
 						if(jQuery('.top_bar').data('hasbg')==1)
 						{
 							jQuery('#custom_logo').addClass('hidden');
-							jQuery('#custom_logo_transparent').removeClass('hidden');
 						}
 						else
 						{
 							jQuery('#custom_logo').removeClass('hidden');
-							jQuery('#custom_logo_transparent').addClass('hidden');
 						}
 					}
 					
