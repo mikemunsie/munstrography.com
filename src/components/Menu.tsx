@@ -29,6 +29,7 @@ const StyledMenu = styled.div`
     select {
       width: 100%;
       display: block;
+      text-transform: capitalize;
     }
   }
 `;
