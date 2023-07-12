@@ -21,6 +21,7 @@
     "eslint-plugin-react-hooks": "^4.1.2",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "eslint-plugin-unused-imports": "^1.1.1",
+    "fs": "^0.0.1-security",
     "prettier": "^2.5.0",
     "react": "^17.0.2",
     "react-device-detect": "^2.1.1",
@@ -33,7 +34,7 @@
   },
   "scripts": {
     "start": "PORT=3001 react-scripts --openssl-legacy-provider start",
-    "build": "react-scripts build",
+    "build": "react-scripts --openssl-legacy-provider  build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "deploy": "npm run build && ./deploy.sh"
