@@ -3,6 +3,7 @@
 declare global {
   interface Window {
     jQuery: any;
+    appReady: any;
   }
 }
 

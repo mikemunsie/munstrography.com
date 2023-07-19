@@ -38,6 +38,10 @@ export default function Layout() {
   }
 
   useEffect(() => {
+    window.appReady();
+  }, []);
+
+  useEffect(() => {
     scrollListener();
     const el = document.querySelector("#close_mobile_menu") as HTMLButtonElement;
     el.click();

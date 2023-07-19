@@ -14,7 +14,7 @@ if(jQuery('#pp_page_title_img_blur').val()!='') {
 	}).call(this);
 }
 
-jQuery(document).ready(function(){ 
+window.appReady = function() { 
 	"use strict";
 
 	jQuery(document).setNav();
@@ -583,6 +583,6 @@ jQuery(document).ready(function(){
 			}
 		});
 	}
-});
+};
 
 jQuery(window).on('resize load',adjustIframes);

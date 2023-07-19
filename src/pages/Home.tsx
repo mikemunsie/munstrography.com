@@ -55,7 +55,7 @@ export default function Home() {
         <div className="clear" />
         <div id="page_content_wrapper" className="wide">
           <div className="flex" style={{ marginBottom: 30 }}>
-            <Menu onClick={setMenuCategory} items={Object.keys(Photos)} selectedItem={menuCategory} />
+            <Menu onClick={setMenuCategory} items={Object.keys(Photos).sort()} selectedItem={menuCategory} />
           </div>
           <div className="inner">
             <div className="inner_wrapper nopadding">
