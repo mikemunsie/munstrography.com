@@ -1,62 +1,20 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
+import Gallery from "../components/Gallery";
 import Menu from "../components/Menu";
-import TwoColumnGallery from "../components/TwoColumnGallery";
+import Photos from "../photos.json";
 
 export default function Home() {
-  const { gallery: galleryName } = useParams();
+  const galleryName = useParams().gallery as keyof typeof Photos;
   const navigate = useNavigate();
-
-  const gallery: Record<string, string[]> = {
-    day: [
-      require("../images/gallery/day/1.jpg").default,
-      require("../images/gallery/day/2.jpg").default,
-      require("../images/gallery/day/3.jpg").default,
-      require("../images/gallery/day/4.jpg").default,
-      require("../images/gallery/day/5.jpg").default,
-      require("../images/gallery/day/6.jpg").default,
-    ],
-    night: [
-      require("../images/gallery/night/1.jpg").default,
-      require("../images/gallery/night/2.jpg").default,
-      require("../images/gallery/night/3.jpg").default,
-      require("../images/gallery/night/4.jpg").default,
-      require("../images/gallery/night/5.jpg").default,
-      require("../images/gallery/night/6.jpg").default,
-    ],
-    interior: [
-      require("../images/gallery/interior/7.jpg").default,
-      require("../images/gallery/interior/3.jpg").default,
-      require("../images/gallery/interior/1.jpg").default,
-      require("../images/gallery/interior/2.jpg").default,
-      require("../images/gallery/interior/6.jpg").default,
-    ],
-    dreamy: [
-      require("../images/gallery/dreamy/1.jpg").default,
-      require("../images/gallery/dreamy/2.jpg").default,
-      require("../images/gallery/dreamy/4.jpg").default,
-      require("../images/gallery/dreamy/3.jpg").default,
-      require("../images/gallery/dreamy/5.jpg").default,
-      require("../images/gallery/dreamy/6.jpg").default,
-      require("../images/gallery/dreamy/7.jpg").default,
-    ],
-    composite: [
-      require("../images/gallery/composite/6.jpg").default,
-      require("../images/gallery/composite/5.jpg").default,
-      require("../images/gallery/composite/4.jpg").default,
-      require("../images/gallery/composite/3.jpg").default,
-      require("../images/gallery/composite/2.jpg").default,
-      require("../images/gallery/composite/1.jpg").default,
-    ],
-  };
-  let allSlideImages = Object.values(gallery).flat();
+  let allSlideImages = Object.values(Photos).flat();
   const [homeSlideUrl, setHomeSlideUrl] = useState("");
-  let menuCategory = galleryName || Object.keys(gallery)[0];
-  if (!gallery[galleryName as any]) {
-    menuCategory = Object.keys(gallery)[0];
+  let menuCategory = galleryName || Object.keys(Photos)[0];
+  if (!Photos[galleryName]) {
+    menuCategory = Object.keys(Photos)[0] as any;
   } else {
-    allSlideImages = gallery[menuCategory];
+    allSlideImages = Photos[menuCategory];
   }
 
   function setMenuCategory(categoryName: string) {
@@ -64,7 +22,7 @@ export default function Home() {
   }
 
   useEffect(() => {
-    setHomeSlideUrl(allSlideImages[Math.floor(Math.random() * allSlideImages.length)]);
+    setHomeSlideUrl(allSlideImages[Math.floor(Math.random() * allSlideImages.length)].src);
   }, []);
 
   return (
@@ -94,16 +52,14 @@ export default function Home() {
             </div>
           </div>
         </div>
-
-        {/*2215x1587*/}
         <div className="clear" />
         <div id="page_content_wrapper" className="wide">
           <div className="flex" style={{ marginBottom: 30 }}>
-            <Menu onClick={setMenuCategory} items={Object.keys(gallery)} selectedItem={menuCategory} />
+            <Menu onClick={setMenuCategory} items={Object.keys(Photos)} selectedItem={menuCategory} />
           </div>
           <div className="inner">
             <div className="inner_wrapper nopadding">
-              <TwoColumnGallery urls={gallery[menuCategory]} />
+              <Gallery photos={Photos[menuCategory]} />
             </div>
           </div>
         </div>

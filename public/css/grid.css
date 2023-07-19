@@ -1531,3 +1531,16 @@
   body { -webkit-text-size-adjust: none; }
   .tg_stats { margin-left: 0; } 
 }
+
+
+
+
+/*
+Mikes Stuff
+*/
+
+#page_content_wrapper img {
+	object-fit: scale-down;
+	max-height: 400px;
+	width: 100%
+}
