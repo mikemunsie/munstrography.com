@@ -30,7 +30,7 @@ const StyledMenu = styled.div`
       width: 100%;
       display: block;
       text-transform: capitalize;
-      -webkit-appearance: none;
+      -webkit-appearance: initial;
     }
   }
 `;
