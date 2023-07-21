@@ -99,7 +99,7 @@ export default function Layout() {
           <div className="footer_bar noborder">
             <div className="footer_bar_wrapper ">
               <SocialLinks />
-              <div id="copyright">© Munstrography</div>
+              <div id="copyright">© 2023 Munstrography</div>
               <br className="clear" />
               <a id="toTop">
                 <i className="fa fa-angle-up"></i>

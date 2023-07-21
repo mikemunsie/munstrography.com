@@ -1,7 +1,7 @@
 export default function SocialLinks() {
   return (
     <div className="social_wrapper">
-      <ul>
+      {/* <ul>
         <li className="instagram">
           <a target="_blank" rel="noreferrer" title="Instagram" href="https://www.instagram.com/munstrography/">
             <i className="fa fa-instagram"></i>
@@ -12,7 +12,7 @@ export default function SocialLinks() {
             <i className="fa fa-facebook-official"></i>
           </a>
         </li>
-      </ul>
+      </ul> */}
     </div>
   );
 }

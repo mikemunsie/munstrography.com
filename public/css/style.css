@@ -4603,7 +4603,6 @@ input[type=text], input[type=password], input[type=email], input[type=url], inpu
 	-o-transition: border-color linear .3s;
 	transition: border-color linear .3s;
 	box-sizing: border-box;
-	-webkit-appearance: none;
 	border-radius: 0;
 }
 
@@ -4731,7 +4730,6 @@ textarea
 	-o-transition: border-color linear .2s;
 	transition: border-color linear .2s;
 	box-sizing: border-box;
-	-webkit-appearance: none;
 }
 
 input[type=submit], input[type=button], a.button, .button
@@ -4750,7 +4748,6 @@ input[type=submit], input[type=button], a.button, .button
 	font-family: 'Montserrat', 'Helvetica Neue', Arial,Verdana,sans-serif;
 	text-shadow: none;
 	font-weight: 600;
-	-webkit-appearance: none;
 	letter-spacing: 1px;
 	box-shadow: 0 0 0 0 !important;
 	line-height: 1.5 !important;
