@@ -556,7 +556,6 @@
 	outline: none;
 	-ms-touch-action: manipulation;
 	touch-action: manipulation;
-	-webkit-appearance: none;
 	-webkit-transition: opacity 0.25s ease-in-out;
 	transition: opacity 0.25s ease-in-out;
 }
