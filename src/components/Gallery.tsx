@@ -12,7 +12,7 @@ import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 
 const StyledGallery = styled.div`
-  margin: 15px;
+  margin: 7.5px;
 `;
 
 type GalleryProps = {

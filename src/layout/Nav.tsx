@@ -25,6 +25,11 @@ export default function Nav(
       <li className={`megamenu col4 menu-item ${isCurrentPageClass(RoutePaths.home)}`}>
         <NavLink to={RoutePaths.home}>Gallery</NavLink>
       </li>
+      <li className={`megamenu col4 menu-item`}>
+        <a target="_blank" href="https://locations.munstrography.com" rel="noreferrer">
+          Locations
+        </a>
+      </li>
       <li className={`megamenu col4 menu-item ${isCurrentPageClass(RoutePaths.about)}`}>
         <NavLink to={RoutePaths.about}>About</NavLink>
       </li>
