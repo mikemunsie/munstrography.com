@@ -26,17 +26,17 @@ export default function Nav(
         <NavLink to={RoutePaths.home}>Gallery</NavLink>
       </li>
       <li className={`megamenu col4 menu-item`}>
-        <a href="https://coding.munstrography.com" rel="noreferrer">
-          Engineering
-        </a>
-      </li>
-      <li className={`megamenu col4 menu-item`}>
         <a target="_blank" href="https://locations.munstrography.com" rel="noreferrer">
           Locations
         </a>
       </li>
       <li className={`megamenu col4 menu-item ${isCurrentPageClass(RoutePaths.about)}`}>
         <NavLink to={RoutePaths.about}>About</NavLink>
+      </li>
+      <li className={`megamenu col4 menu-item`}>
+        <a href="https://www.munstrocity.com" rel="noreferrer">
+          Engineering
+        </a>
       </li>
     </ul>
   );
