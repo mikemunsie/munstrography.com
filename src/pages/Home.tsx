@@ -10,7 +10,7 @@ export default function Home() {
   const navigate = useNavigate();
   let allSlideImages = Object.values(Photos).flat();
   const [homeSlideUrl, setHomeSlideUrl] = useState("");
-  const photo_items = ["night", "interior", "day", "landscape"];
+  const photo_items = ["night", "interior", "day", "nature"];
   let menuCategory = galleryName || photo_items[0];
 
   if (!Photos[galleryName]) {
