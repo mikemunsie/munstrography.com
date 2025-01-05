@@ -11,11 +11,14 @@ export default function Home() {
   let allSlideImages = Object.values(Photos).flat();
   const [homeSlideUrl, setHomeSlideUrl] = useState("");
   let menuCategory = galleryName || Object.keys(Photos)[0];
+
   if (!Photos[galleryName]) {
     menuCategory = Object.keys(Photos)[0] as any;
   } else {
     allSlideImages = Photos[menuCategory];
   }
+
+  const photo_items = ["night", "interior", "day", "landscape"];
 
   function setMenuCategory(categoryName: string) {
     navigate(`/gallery/${categoryName.toLowerCase()}`);
@@ -33,24 +36,13 @@ export default function Home() {
         </div> */}
         <div className="one ppb_header" style={{ paddingTop: "15px" }}>
           <div className="standard_wrapper">
-            <div className="page_content_wrapper">
-              <div className="inner">
-                <div>
-                  {/* <div className="ppb_subtitle">Photographer / Car Enthusiast / Software Developer</div> */}
-                  {/* <h2 className="ppb_title">Photography is an extension of your personality.</h2>
-                  <hr className="title_break center" /> */}
-                  {/* <div className="ppb_header_content" style={{ maxWidth: "600px" }}>
-                    <p>Photography.</p>
-                  </div> */}
-                </div>
-              </div>
-            </div>
+            <div className="page_content_wrapper"></div>
           </div>
         </div>
         <div className="clear" />
         <div id="page_content_wrapper" className="wide">
           <div className="flex">
-            <Menu onClick={setMenuCategory} items={Object.keys(Photos).sort()} selectedItem={menuCategory} />
+            <Menu onClick={setMenuCategory} items={photo_items} selectedItem={menuCategory} />
           </div>
           <div className="inner">
             <div className="inner_wrapper nopadding">
