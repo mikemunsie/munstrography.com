@@ -50,7 +50,6 @@ async function resize_images(dir, max_height = 1080) {
                         });
                 }
             } catch(e) {
-                console.log(e)
                 // Do nothing
             }
         } else if (stats.isDirectory()) {
