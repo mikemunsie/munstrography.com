@@ -10,15 +10,14 @@ export default function Home() {
   const navigate = useNavigate();
   let allSlideImages = Object.values(Photos).flat();
   const [homeSlideUrl, setHomeSlideUrl] = useState("");
-  let menuCategory = galleryName || Object.keys(Photos)[0];
+  const photo_items = ["night", "interior", "day", "landscape"];
+  let menuCategory = galleryName || photo_items[0];
 
   if (!Photos[galleryName]) {
-    menuCategory = Object.keys(Photos)[0] as any;
+    menuCategory = photo_items[0] as any;
   } else {
     allSlideImages = Photos[menuCategory];
   }
-
-  const photo_items = ["night", "interior", "day", "landscape"];
 
   function setMenuCategory(categoryName: string) {
     navigate(`/gallery/${categoryName.toLowerCase()}`);
