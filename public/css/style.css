@@ -12247,10 +12247,10 @@ h6.subtitle,
 
 @media (prefers-color-scheme: dark) {
     html {
-        filter: invert(100%) hue-rotate(180deg);
+        filter: invert(100%);
     }
     img, .img {
-        filter: invert(100%) hue-rotate(180deg);
+        filter: invert(100%);
     }
 	:root {
 		--yarl__button_background_color: black;
