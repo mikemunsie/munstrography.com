@@ -15,6 +15,7 @@ const CustomLogo = styled.img`
   width: 192px;
   height: 60px;
   position: relative;
+  filter: none;
   @media (max-width: 770px) {
     height: 50px !important;
     width: 150px;
@@ -65,14 +66,14 @@ export default function Layout() {
                 <div id="logo_normal" className="logo_container">
                   <div className="logo_align">
                     <NavLink to={RoutePaths.home} id="custom_logo" className="logo_wrapper default">
-                      <CustomLogo src={WatermarkImg} alt="Logo" />
+                      <CustomLogo className="img" src={WatermarkImg} alt="Logo" />
                     </NavLink>
                   </div>
                 </div>
                 <div id="logo_transparent" className="logo_container">
                   <div className="logo_align">
                     <a id="custom_logo_transparent" className="logo_wrapper hidden" href="index.html">
-                      <CustomLogo src={WatermarkWhiteImg} alt="" />
+                      <CustomLogo className="img" src={WatermarkWhiteImg} alt="" />
                     </a>
                   </div>
                 </div>

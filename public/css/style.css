@@ -12240,3 +12240,16 @@ h6.subtitle,
     }
   }
 }
+
+
+
+/* Custom */
+
+@media (prefers-color-scheme: dark) {
+    html {
+        filter: invert(100%) hue-rotate(180deg);
+    }
+    img, .img {
+        filter: invert(100%) hue-rotate(180deg);
+    }
+}
