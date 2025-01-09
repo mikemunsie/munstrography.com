@@ -30,6 +30,11 @@ export default function Nav(
           Spots in DFW
         </a>
       </li>
+      <li className={`megamenu col4 menu-item`}>
+        <a href="https://instagram.com/munstrography" rel="noreferrer">
+          Instagram
+        </a>
+      </li>
       <li className={`megamenu col4 menu-item ${isCurrentPageClass(RoutePaths.about)}`}>
         <NavLink to={RoutePaths.about}>About</NavLink>
       </li>
