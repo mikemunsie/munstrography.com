@@ -12252,4 +12252,9 @@ h6.subtitle,
     img, .img {
         filter: invert(100%) hue-rotate(180deg);
     }
+	:root {
+		--yarl__button_background_color: black;
+		--yarl__container_background_color: white;
+		--yarl__color_backdrop: white;
+	}
 }
