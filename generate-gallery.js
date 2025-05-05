@@ -18,7 +18,7 @@ categories.forEach(category => {
             return file.name.indexOf(".DS") === -1
         })
     , image => {
-        return fs.statSync(`${folder}/${image.name}`).birthtimeMs;
+        return fs.statSync(`${folder}/${image.name}`).mtimeMs;
     }).reverse();
     fileMapping[category] = images.map(file => {
         const dimensions = sizeOf(fs.readFileSync(`${folder}/${file.name}`));
