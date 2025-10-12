@@ -38,11 +38,6 @@ export default function Nav(
       <li className={`megamenu col4 menu-item ${isCurrentPageClass(RoutePaths.about)}`}>
         <NavLink to={RoutePaths.about}>About</NavLink>
       </li>
-      <li className={`megamenu col4 menu-item`}>
-        <a href="https://www.munstrocity.com" rel="noreferrer">
-          Engineering
-        </a>
-      </li>
     </ul>
   );
 }
