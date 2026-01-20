@@ -32,6 +32,10 @@ const Name = styled.h1`
   color: #222;
   margin: 0 0 8px;
   letter-spacing: 1px;
+
+  @media (prefers-color-scheme: dark) {
+    color: #e8e8e8;
+  }
 `;
 
 const Bio = styled.p`
@@ -40,6 +44,10 @@ const Bio = styled.p`
   color: #444;
   margin: 0 0 24px;
   text-align: center;
+
+  @media (prefers-color-scheme: dark) {
+    color: #c9c9c9;
+  }
 `;
 
 const LinkList = styled.div`
@@ -71,6 +79,18 @@ const LinkButton = styled.a<React.AnchorHTMLAttributes<HTMLAnchorElement>>`
     background: transparent;
     border-color: #222;
   }
+
+  @media (prefers-color-scheme: dark) {
+    color: #fff;
+    background: #333;
+    border-color: #444;
+
+    &:hover {
+      color: #e5e5e5;
+      background: transparent;
+      border-color: #666;
+    }
+  }
 `;
 
 const Copyright = styled.p`
@@ -78,6 +98,10 @@ const Copyright = styled.p`
   font-size: 12px;
   color: #888;
   font-family: "Hind", "Helvetica Neue", Arial, Verdana, sans-serif;
+
+  @media (prefers-color-scheme: dark) {
+    color: #999;
+  }
 `;
 
 export default function Social() {
