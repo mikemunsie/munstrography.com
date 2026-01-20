@@ -11664,18 +11664,322 @@ h6.subtitle,
 /* Custom */
 
 @media (prefers-color-scheme: dark) {
-	html {
-		filter: invert(100%);
-	}
-
-	img,
-	.img {
-		filter: invert(100%);
-	}
-
 	:root {
-		--yarl__button_background_color: black;
-		--yarl__container_background_color: white;
-		--yarl__color_backdrop: white;
+		--yarl__button_background_color: #000;
+		--yarl__button_border: 1px solid #333;
+		--yarl__button_filter: none;
+		--yarl__color_backdrop: rgba(0, 0, 0, 0.95);
+		--yarl__container_background_color: #000;
+		--yarl__thumbnails_container_background_color: #000;
+		--yarl__thumbnails_thumbnail_background: #000;
+		--yarl__thumbnails_thumbnail_border: 1px solid #333;
+		--yarl__thumbnails_thumbnail_active_border_color: #e5e5e5;
+	}
+
+	body {
+		background: #000;
+		color: #e5e5e5;
+	}
+
+	#wrapper {
+		background-color: #000;
+	}
+
+	.ppb_wrapper {
+		background-color: #000;
+	}
+
+	.overlay_gallery_wrapper {
+		background-color: #000;
+	}
+
+	html[data-style=fullscreen] body.single-galleries,
+	html[data-style=fullscreen] body.single-galleries #wrapper {
+		background: #000;
+	}
+
+	html[data-style=fullscreen] body {
+		background: #000;
+	}
+
+	a {
+		color: #c9c9c9;
+	}
+
+	a:hover,
+	a:active {
+		color: #ffffff;
+	}
+
+	hr {
+		border-top-color: #3d3d3d;
+	}
+
+	hr.title_break {
+		border-color: #b0b0b0;
+		border-top-color: #b0b0b0;
+	}
+
+	hr.thick,
+	hr.dotted,
+	hr.dashed {
+		border-top-color: #3d3d3d;
+	}
+
+	.hr_totop {
+		background: #000;
+		color: #e5e5e5;
+	}
+
+	.top_bar {
+		background: #000;
+		border-color: #222;
+	}
+
+	.top_bar.hasbg {
+		background: rgba(0, 0, 0, 0.6);
+	}
+
+	.top_bar.noopacity {
+		background: #000 !important;
+	}
+
+	.top_bar.scroll.light {
+		background: #000;
+		border-color: #222;
+	}
+
+	.top_bar.scroll.light #menu_wrapper div .nav>li>a,
+	.top_bar.scroll.light .social_wrapper ul li a {
+		color: #e5e5e5;
+	}
+
+	.top_bar.scroll.light #mobile_nav_icon {
+		border-color: #e5e5e5;
+	}
+
+	.logo_wrapper.default img {
+		filter: invert(1) brightness(1.05);
+	}
+
+	#menu_wrapper .nav ul li a,
+	#menu_wrapper div .nav li>a {
+		color: #e5e5e5;
+	}
+
+	#menu_wrapper .nav ul li a:hover,
+	#menu_wrapper div .nav li a:hover,
+	#menu_wrapper div .nav>li.current-menu-item>a,
+	#menu_wrapper div .nav>li.current-menu-parent>a,
+	#menu_wrapper div .nav>li.current-menu-ancestor>a {
+		color: #ffffff;
+		border-color: #ffffff;
+	}
+
+	#menu_wrapper .nav ul li ul,
+	#menu_wrapper div .nav li ul {
+		background: #000;
+		border-color: #333;
+	}
+
+	#menu_wrapper .nav ul li ul li a,
+	#menu_wrapper div .nav li ul li a,
+	#menu_wrapper div .nav li.current-menu-parent ul li a,
+	#menu_wrapper .nav ul li.megamenu ul li ul li a,
+	#menu_wrapper div .nav li.megamenu ul li ul li a {
+		color: #b8b8b8;
+	}
+
+	#menu_wrapper .nav ul li ul li a:hover,
+	#menu_wrapper div .nav li ul li a:hover,
+	#menu_wrapper div .nav li.current-menu-parent ul li a:hover,
+	#menu_wrapper .nav ul li.megamenu ul li ul li a:hover,
+	#menu_wrapper div .nav li.megamenu ul li ul li a:active {
+		color: #ffffff;
+		background: #222;
+	}
+
+	#menu_wrapper div .nav li.megamenu ul li>a,
+	#menu_wrapper div .nav li.megamenu ul li>a:hover,
+	#menu_wrapper div .nav li.megamenu ul li>a:active,
+	#menu_wrapper div .nav li.megamenu ul li.current-menu-item>a {
+		color: #e5e5e5;
+	}
+
+	#menu_wrapper div .nav li.megamenu ul li {
+		border-color: #333;
+	}
+
+	#mobile_nav_icon {
+		border-color: #e5e5e5;
+	}
+
+	.top_bar,
+	#page_caption,
+	#nav_wrapper {
+		border-color: #222;
+	}
+
+	.top_bar,
+	.portfolio_post_previous a,
+	.portfolio_post_next a {
+		background-color: #000;
+	}
+
+	#page_caption {
+		background-color: #000;
+	}
+
+	#page_caption .page_title_wrapper,
+	#portfolio_wall_filters,
+	.portfolio_wall_filters,
+	.page_tagline,
+	#page_caption.hasbg .page_tagline,
+	#page_caption.hasbg h1,
+	h1.hasbg {
+		color: #e5e5e5;
+	}
+
+	.filter li a:hover {
+		border-bottom-color: #b0b0b0;
+	}
+
+	.filter li a.active,
+	#portfolio_wall_filters li a.active,
+	#portfolio_wall_filters li a:hover,
+	.filter li a:hover {
+		border-color: #b0b0b0;
+	}
+
+	.mobile_menu_wrapper {
+		background-color: #000;
+	}
+
+	.mobile_menu_wrapper #searchform input[type="text"] {
+		background: #111;
+	}
+
+	.mobile_menu_wrapper #searchform input[type="text"],
+	.mobile_menu_wrapper #searchform button i {
+		color: #e5e5e5;
+	}
+
+	.mobile_menu_wrapper #searchform ::-webkit-input-placeholder {
+		color: #a0a0a0;
+	}
+
+	.mobile_menu_wrapper #searchform ::-moz-placeholder {
+		color: #a0a0a0;
+	}
+
+	.mobile_menu_wrapper #searchform :-ms-input-placeholder {
+		color: #a0a0a0;
+	}
+
+	.mobile_main_nav li a,
+	#sub_menu li a,
+	.mobile_menu_wrapper .sidebar_wrapper a,
+	.mobile_menu_wrapper .sidebar_wrapper,
+	#close_mobile_menu i {
+		color: #e5e5e5;
+	}
+
+	.mobile_main_nav li a:hover,
+	.mobile_main_nav li a:active,
+	#sub_menu li a:hover,
+	#sub_menu li a:active,
+	.mobile_menu_wrapper .sidebar_wrapper h2.widgettitle {
+		color: #ffffff;
+	}
+
+	#footer {
+		color: #d8d8d8;
+	}
+
+	#footer a,
+	#footer a:active {
+		color: #c9c9c9;
+	}
+
+	#footer a:hover {
+		color: #ffffff;
+	}
+
+	.footer_bar {
+		background-color: #000;
+		border-color: #222;
+	}
+
+	.footer_bar_wrapper {
+		background: #000;
+		border-color: #222;
+	}
+
+	#copyright {
+		color: #d8d8d8;
+	}
+
+	#footer_menu li a,
+	.footer_bar_wrapper .social_wrapper ul li a {
+		color: #d8d8d8;
+	}
+
+	#copyright a:hover,
+	.social_wrapper ul li a:hover,
+	#footer_menu li a:hover {
+		color: #ffffff;
+	}
+
+	#toTop {
+		background: #222;
+	}
+
+	#toTop i {
+		color: #e5e5e5;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5 {
+		color: #e8e8e8;
+	}
+
+	.ppb_title {
+		color: #e8e8e8;
+	}
+
+	input[type="text"],
+	input[type="email"],
+	input[type="url"],
+	input[type="password"],
+	input[type="search"],
+	textarea {
+		background: #111;
+		border-color: #333;
+		color: #e5e5e5;
+	}
+
+	.btn-effect {
+		background: #222;
+		color: #e5e5e5;
+	}
+
+	.btn-effect:hover {
+		background: #333;
+	}
+
+	#footer .sidebar_widget li ul li {
+		border-color: #333;
+	}
+
+	#footer table tr th,
+	#footer table tr td {
+		border-bottom-color: #333 !important;
+	}
+
+	#footer .widget_tag_cloud div a {
+		border-color: #333 !important;
 	}
 }
