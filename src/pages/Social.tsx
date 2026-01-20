@@ -13,7 +13,7 @@ const Wrapper = styled.div`
   align-items: center;
   max-width: 400px;
   margin: 0 auto;
-  padding: 40px 24px 32px;
+  padding: 40px 0px 32px 0;
   font-family: "Hind", "Helvetica Neue", Arial, Verdana, sans-serif;
 `;
 
@@ -87,7 +87,7 @@ export default function Social() {
         <div className="page_content_wrapper">
           <div className="inner">
             <Wrapper>
-              <ProfileImg src="/img/instagram-profile.jpg" alt="Munstrography" />
+              <ProfileImg className="img" src="/img/instagram-profile.jpg" alt="Munstrography" />
               <Name>Munstrography</Name>
               <Bio>Car photographer & enthusiast. DFW-based. Available for shoots.</Bio>
               <LinkList>
