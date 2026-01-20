@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const ShareImage = styled.div`
+const ShareImage = styled.div<React.HTMLAttributes<HTMLDivElement>>`
   position: fixed;
   top: 0;
   left: 0;

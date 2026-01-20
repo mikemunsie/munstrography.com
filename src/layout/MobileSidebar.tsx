@@ -4,7 +4,7 @@ import SocialLinks from "./SocialLinks";
 export default function MobileSidebar() {
   return (
     <>
-      <a id="close_mobile_menu" href="javascript:;"></a>
+      <a id="close_mobile_menu" href="#" onClick={(e) => e.preventDefault()}></a>
       <div className="mobile_menu_wrapper">
         <div className="menu-side-mobile-menu-container">
           <Nav id="mobile_main_menu" className="mobile_main_nav" />

@@ -9,7 +9,7 @@ export default function Home() {
   const galleryName = useParams().gallery as keyof typeof Photos;
   const navigate = useNavigate();
   let allSlideImages = Object.values(Photos).flat();
-  const [homeSlideUrl, setHomeSlideUrl] = useState("");
+  const [_, setHomeSlideUrl] = useState("");
   const photo_items = ["night", "interior", "day", "nature"];
   let menuCategory = galleryName || photo_items[0];
 

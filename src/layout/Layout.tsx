@@ -11,7 +11,7 @@ import MobileSidebar from "./MobileSidebar";
 import Nav from "./Nav";
 import SocialLinks from "./SocialLinks";
 
-const CustomLogo = styled.img`
+const CustomLogo = styled.img<React.ImgHTMLAttributes<HTMLImageElement>>`
   width: 192px;
   height: 60px;
   position: relative;
@@ -87,7 +87,7 @@ export default function Layout() {
                       </div>
                     </div>
                     <div id="logo_right_button">
-                      <a href="javascript:;" id="mobile_nav_icon"></a>
+                      <a href="#" id="mobile_nav_icon" onClick={(e) => e.preventDefault()}></a>
                     </div>
                   </div>
                 </div>
@@ -100,7 +100,7 @@ export default function Layout() {
           <div className="footer_bar noborder">
             <div className="footer_bar_wrapper ">
               <SocialLinks />
-              <div id="copyright">© 2025 Munstrography</div>
+              <div id="copyright">© {new Date().getFullYear()} Munstrography</div>
               <br className="clear" />
               <a id="toTop">
                 <i className="fa fa-angle-up"></i>

@@ -3,4 +3,5 @@ export enum RoutePaths {
   gallery = "/gallery/:gallery",
   about = "/about",
   share = "/share",
+  social = "/social",
 }
