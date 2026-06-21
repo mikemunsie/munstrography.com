@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const LINKS = [
   { label: "Venmo", href: "https://account.venmo.com/u/munstrography" },
-  { label: "Spots in DFW", href: "https://locations.munstrography.com/auth/dashboard/locations" },
+  { label: "PhotoScout", href: "https://locations.munstrography.com/auth/dashboard/locations" },
   { label: "Gallery", href: "https://munstrography.com/" },
   { label: "Book me", href: "https://www.instagram.com/munstrography" },
 ] as const;

@@ -27,7 +27,7 @@ export default function Nav(
       </li>
       <li className={`megamenu col4 menu-item`}>
         <a target="_blank" href="https://locations.munstrography.com" rel="noreferrer">
-          Spots in DFW
+          PhotoScout
         </a>
       </li>
       <li className={`megamenu col4 menu-item`}>
