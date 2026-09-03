@@ -1,47 +1,45 @@
 import { useState } from "react";
 import PhotoAlbum from "react-photo-album";
 
-import "yet-another-react-lightbox/styles.css";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
-import styled from "styled-components";
+import "yet-another-react-lightbox/styles.css";
 import Lightbox from "yet-another-react-lightbox";
-// import optional lightbox plugins
 import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
-import Slideshow from "yet-another-react-lightbox/plugins/slideshow";
 import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 
-const StyledGallery = styled.div`
-  margin: 7.5px;
-`;
-
-type GalleryProps = {
-  photos: {
-    src: string;
-    width: number;
-    height: number;
-  }[];
+export type Photo = {
+  src: string;
+  width: number;
+  height: number;
 };
 
-export default function Gallery(props: GalleryProps) {
-  const { photos } = props;
+type GalleryProps = {
+  photos: Photo[];
+};
+
+export default function Gallery({ photos }: GalleryProps) {
   const [index, setIndex] = useState(-1);
 
-  function handleClick(params: any) {
-    const { index } = params;
-    setIndex(index);
-  }
-
   return (
-    <StyledGallery>
-      <PhotoAlbum onClick={handleClick} layout="rows" photos={photos} />
+    <div className="album">
+      <PhotoAlbum
+        layout="rows"
+        photos={photos}
+        spacing={6}
+        padding={0}
+        targetRowHeight={(width) => (width < 600 ? 230 : width < 1000 ? 220 : 280)}
+        breakpoints={[480, 768, 1200]}
+        onClick={({ index: next }) => setIndex(next)}
+      />
       <Lightbox
         slides={photos}
         open={index >= 0}
         index={index}
         close={() => setIndex(-1)}
-        plugins={[Fullscreen, Slideshow, Thumbnails, Zoom]}
+        plugins={[Fullscreen, Thumbnails, Zoom]}
+        styles={{ root: { zIndex: 200 } }}
       />
-    </StyledGallery>
+    </div>
   );
 }
