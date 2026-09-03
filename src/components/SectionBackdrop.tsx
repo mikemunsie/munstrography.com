@@ -70,13 +70,14 @@ export function useParallaxImage(frameSelector: string) {
     if (!img) return;
 
     const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const compact = window.matchMedia("(max-width: 700px)");
     const frame = img.closest(frameSelector) ?? img.parentElement;
     if (!frame) return;
 
     let unbind: (() => void) | undefined;
 
     const sync = () => {
-      if (motion.matches) {
+      if (motion.matches || compact.matches) {
         unbind?.();
         unbind = undefined;
         return;
@@ -86,9 +87,11 @@ export function useParallaxImage(frameSelector: string) {
 
     sync();
     motion.addEventListener("change", sync);
+    compact.addEventListener("change", sync);
 
     return () => {
       motion.removeEventListener("change", sync);
+      compact.removeEventListener("change", sync);
       unbind?.();
     };
   }, [frameSelector]);

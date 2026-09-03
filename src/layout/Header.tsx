@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 
 import { INSTAGRAM_URL, PHOTOSCOUT_URL } from "../data/site";
+import WatermarkWhite from "../images/watermark-white.png";
 import { RoutePaths } from "../routes/paths";
 
 const LINKS = [
@@ -17,15 +18,29 @@ type HeaderProps = {
 
 export default function Header({ solid = false }: HeaderProps) {
   const location = useLocation();
+  const isHome = location.pathname === RoutePaths.home;
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [pastHero, setPastHero] = useState(!isHome);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    const hero = isHome ? document.querySelector(".hero") : null;
+    const rootStyles = getComputedStyle(document.documentElement);
+    const headerH = parseFloat(rootStyles.getPropertyValue("--header-h")) || 76;
+
+    const onScroll = () => {
+      setScrolled(window.scrollY > 20);
+      if (!isHome || !hero) {
+        setPastHero(true);
+        return;
+      }
+      setPastHero(hero.getBoundingClientRect().bottom <= headerH);
+    };
+
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [isHome]);
 
   useEffect(() => {
     setOpen(false);
@@ -49,6 +64,22 @@ export default function Header({ solid = false }: HeaderProps) {
       </a>
       <header className={headerClass}>
         <div className="header-inner">
+          <Link
+            to={RoutePaths.home}
+            className={`header-logo${pastHero ? " is-in" : ""}`}
+            aria-label="Munstrography home"
+            aria-hidden={!pastHero}
+            tabIndex={pastHero ? undefined : -1}
+            onClick={(event) => {
+              setOpen(false);
+              if (location.pathname === RoutePaths.home) {
+                event.preventDefault();
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }
+            }}
+          >
+            <img src={WatermarkWhite} alt="" />
+          </Link>
           <nav className="nav-desktop" aria-label="Primary">
             {LINKS.map((link) => (
               <NavLink
