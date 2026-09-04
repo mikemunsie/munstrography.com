@@ -1,4 +1,4 @@
-import { Link, Navigate, useParams } from "react-router-dom";
+import { Link, Navigate, useLocation, useParams } from "react-router-dom";
 
 import ShootAlbum from "../components/ShootAlbum";
 import { formatShootDate, getShoot } from "../data/portfolio";
@@ -6,13 +6,27 @@ import { RoutePaths } from "../routes/paths";
 import ui from "../styles/ui.module.css";
 import styles from "./ShootPage.module.css";
 
+type ShootLocationState = {
+  from?: string;
+};
+
+function shootBack(from: string | undefined) {
+  if (from === RoutePaths.home) {
+    return { to: RoutePaths.home, label: "Back to home" };
+  }
+  return { to: RoutePaths.portfolio, label: "Back to portfolio" };
+}
+
 export default function ShootPage() {
   const { shoot: slug } = useParams();
+  const { state } = useLocation();
   const shoot = getShoot(slug);
 
   if (!shoot) {
     return <Navigate to={RoutePaths.portfolio} replace />;
   }
+
+  const back = shootBack((state as ShootLocationState | null)?.from);
 
   const dateLabel = formatShootDate(shoot.date);
 
@@ -20,7 +34,7 @@ export default function ShootPage() {
     <>
       <section className={ui.pageHero}>
         <div className={ui.wrap}>
-          <Link to={RoutePaths.portfolio} className={styles.back} aria-label="Back to portfolio">
+          <Link to={back.to} state={{ restoreScroll: true }} className={styles.back} aria-label={back.label}>
             <svg viewBox="0 0 16 16" aria-hidden="true">
               <path
                 d="M10.25 2.75 4.75 8l5.5 5.25"
@@ -46,8 +60,8 @@ export default function ShootPage() {
         </div>
       </section>
       <ShootAlbum photos={shoot.photos} title={shoot.name} />
-      <Link className={styles.toPortfolio} to={RoutePaths.portfolio}>
-        Back to portfolio
+      <Link className={styles.toPortfolio} to={back.to} state={{ restoreScroll: true }}>
+        {back.label}
       </Link>
       <a className={styles.toTop} href="#main">
         Back to top

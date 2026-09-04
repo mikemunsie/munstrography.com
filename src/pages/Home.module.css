@@ -162,7 +162,7 @@
 
 .cluster {
   position: relative;
-  width: min(85%, 39rem);
+  width: min(calc(85% * 1.15), calc(39rem * 1.15));
   padding: 3.25rem 1.75rem;
 }
 
@@ -293,7 +293,7 @@
 .tagline {
   position: relative;
   z-index: 1;
-  margin: -3rem 0 0;
+  margin: calc(-3rem * 1.15) 0 0;
   display: grid;
   justify-items: center;
   text-align: center;
@@ -348,7 +348,7 @@
   }
 
   .tagline {
-    margin-top: -1.7rem;
+    margin-top: calc(-1.7rem * 1.15 + 20px);
     font-size: 0.64rem;
     letter-spacing: 0.1em;
     white-space: nowrap;

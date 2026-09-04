@@ -1,7 +1,7 @@
 .skip {
   position: absolute;
   left: 1rem;
-  top: -4rem;
+  top: 0;
   z-index: 100;
   background: var(--text);
   color: var(--bg);
@@ -9,10 +9,12 @@
   font-size: 0.85rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  transform: translateY(-120%);
 }
 
 .skip:focus {
   top: 1rem;
+  transform: none;
 }
 
 .header {
@@ -46,7 +48,7 @@
 .logo {
   display: block;
   flex-shrink: 0;
-  width: clamp(9.5rem, 32vw, 12rem);
+  width: clamp(calc(9.5rem * 1.15), calc(32vw * 1.15), calc(12rem * 1.15));
   line-height: 0;
   opacity: 0;
   visibility: hidden;

@@ -7,6 +7,7 @@ export default function Portfolio() {
   return (
     <section className={ui.pageHero}>
       <div className={ui.wrap}>
+        <h1 className={ui.display}>Recent Work</h1>
         <div className={styles.stack}>
           <ShootGrid shoots={PORTFOLIO_SHOOTS} />
         </div>

@@ -24,7 +24,7 @@ export default function Header({ solid = false }: HeaderProps) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [menuPath, setMenuPath] = useState(location.pathname);
-  const [pastHero, setPastHero] = useState(!isHome);
+  const [pastLogo, setPastLogo] = useState(!isHome);
 
   if (location.pathname !== menuPath) {
     setMenuPath(location.pathname);
@@ -32,17 +32,17 @@ export default function Header({ solid = false }: HeaderProps) {
   }
 
   useEffect(() => {
-    const hero = isHome ? document.querySelector("[data-hero]") : null;
+    const logo = isHome ? document.querySelector("[data-hero-logo]") : null;
     const rootStyles = getComputedStyle(document.documentElement);
     const headerH = parseFloat(rootStyles.getPropertyValue("--header-h")) || 76;
 
     const onScroll = () => {
       setScrolled(window.scrollY > 20);
-      if (!isHome || !hero) {
-        setPastHero(true);
+      if (!isHome || !logo) {
+        setPastLogo(true);
         return;
       }
-      setPastHero(hero.getBoundingClientRect().bottom <= headerH);
+      setPastLogo(logo.getBoundingClientRect().bottom <= headerH);
     };
 
     onScroll();
@@ -66,10 +66,10 @@ export default function Header({ solid = false }: HeaderProps) {
         <div className={styles.inner}>
           <Link
             to={RoutePaths.home}
-            className={cx(styles.logo, pastHero && styles.logoIn)}
+            className={cx(styles.logo, pastLogo && styles.logoIn)}
             aria-label="Munstrography home"
-            aria-hidden={!pastHero}
-            tabIndex={pastHero ? undefined : -1}
+            aria-hidden={!pastLogo}
+            tabIndex={pastLogo ? undefined : -1}
             onClick={(event) => {
               setOpen(false);
               if (location.pathname === RoutePaths.home) {
