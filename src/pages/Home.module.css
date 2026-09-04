@@ -294,6 +294,8 @@
   position: relative;
   z-index: 1;
   margin: -3rem 0 0;
+  display: grid;
+  justify-items: center;
   text-align: center;
   font-size: clamp(0.68rem, 1.35vw, 0.82rem);
   font-weight: 500;
@@ -303,6 +305,32 @@
   text-shadow:
     0 1px 2px rgba(0, 0, 0, 0.95),
     0 3px 12px rgba(0, 0, 0, 0.8);
+}
+
+.role,
+.roleAlt {
+  grid-area: 1 / 1;
+  transition:
+    opacity 0.18s linear,
+    transform 0.22s var(--ease);
+}
+
+.roleAlt {
+  opacity: 0;
+  transform: translateY(6px);
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.95),
+    0 0 14px rgba(170, 225, 255, 0.55);
+}
+
+.logo[data-split] ~ .tagline .role {
+  opacity: 0;
+  transform: translateY(-6px);
+}
+
+.logo[data-split] ~ .tagline .roleAlt {
+  opacity: 1;
+  transform: none;
 }
 
 @media (max-width: 700px) {

@@ -52,7 +52,12 @@ export default function Home() {
                 </span>
               </span>
             </h1>
-            <p className={cx(styles.tagline, styles.reveal)}>Automotive Photographer</p>
+            <p className={cx(styles.tagline, styles.reveal)}>
+              <span className={styles.role}>Automotive Photographer</span>
+              <span className={styles.roleAlt} aria-hidden="true">
+                Software Developer
+              </span>
+            </p>
           </div>
         </div>
         <div className={cx(styles.copy, styles.reveal)}>
