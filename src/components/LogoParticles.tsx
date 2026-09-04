@@ -213,7 +213,6 @@ export function LogoParticles() {
     };
 
     const setStruck = (on: boolean) => {
-      hero?.toggleAttribute("data-struck", on);
       logo?.toggleAttribute("data-split", on);
     };
 
@@ -228,11 +227,9 @@ export function LogoParticles() {
       const paths = forkBolt(x1, y1, x2, y2, mobile ? 2 : 3 + Math.floor(Math.random() * 2));
 
       sheetX = x1 / Math.max(1, width);
-      flash = Math.max(flash, 0.18);
       spawnBolt(paths, 0.7, 6, 0.12, false);
 
       later(() => {
-        flash = 0.62;
         spawnBolt(paths, mobile ? 1.7 : 2.35, 18, 0.2);
         setStruck(true);
         const sparks = mobile ? 14 : 26;
@@ -244,7 +241,6 @@ export function LogoParticles() {
 
       later(() => {
         spawnBolt(paths, 1.1, 10, 0.1);
-        flash = Math.max(flash, 0.28);
       }, 160);
 
       later(() => setStruck(false), 720);

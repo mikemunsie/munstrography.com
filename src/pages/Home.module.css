@@ -27,11 +27,6 @@
   object-position: center 58%;
   transform-origin: center 58%;
   filter: brightness(1.55) contrast(1.04) saturate(1.04);
-  transition: filter 90ms linear;
-}
-
-.hero[data-struck] .media img {
-  filter: brightness(2.05) contrast(1.1) saturate(0.88);
 }
 
 @media (max-width: 700px) {
@@ -152,11 +147,21 @@
 
 @media (max-width: 700px) {
 
-  .hero::after,
   .media::after,
   .copy::before,
   .stage::before {
     display: none;
+  }
+
+  .hero::after {
+    background: linear-gradient(
+      to bottom,
+      rgba(8, 8, 8, 0.88) 0,
+      rgba(8, 8, 8, 0.7) var(--header-h),
+      rgba(8, 8, 8, 0.32) calc(var(--header-h) + 3.5rem),
+      transparent calc(var(--header-h) + 9rem)
+    );
+    pointer-events: none;
   }
 }
 
@@ -180,8 +185,8 @@
 
 .cluster:has([data-split])::before {
   background: radial-gradient(ellipse 72% 58% at 50% 50%,
-      rgba(180, 225, 255, 0.34) 0%,
-      rgba(145, 205, 255, 0.1) 42%,
+      rgba(180, 225, 255, 0.23) 0%,
+      rgba(145, 205, 255, 0.07) 42%,
       transparent 72%);
 }
 
@@ -203,9 +208,9 @@
   inset: 18% 42% 18% 42%;
   background: linear-gradient(180deg,
       transparent 0%,
-      rgba(210, 236, 255, 0.15) 18%,
-      rgba(255, 255, 255, 0.95) 50%,
-      rgba(170, 220, 255, 0.2) 82%,
+      rgba(210, 236, 255, 0.1) 18%,
+      rgba(255, 255, 255, 0.66) 50%,
+      rgba(170, 220, 255, 0.14) 82%,
       transparent 100%);
   clip-path: polygon(58% 0, 28% 18%, 72% 36%, 18% 50%, 70% 64%, 36% 82%, 62% 100%, 48% 100%, 22% 82%, 56% 64%, 4% 50%, 58% 36%, 14% 18%, 44% 0);
   filter: blur(1.2px);
@@ -287,7 +292,7 @@
 
 .logo[data-split] .half img {
   filter:
-    drop-shadow(0 4px 22px rgba(0, 0, 0, 0.72)) drop-shadow(0 0 28px rgba(170, 225, 255, 0.72));
+    drop-shadow(0 4px 22px rgba(0, 0, 0, 0.72)) drop-shadow(0 0 28px rgba(170, 225, 255, 0.5));
 }
 
 .tagline {

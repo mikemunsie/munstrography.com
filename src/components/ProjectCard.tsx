@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 
 import { type PortfolioShoot } from "../data/portfolio";
 import { cx } from "../utils/cx";
@@ -14,6 +14,7 @@ type ShootCardProps = {
 
 export function ShootCard({ to, image, title }: ShootCardProps) {
   const { pathname } = useLocation();
+  const navigate = useNavigate();
 
   return (
     <NavLink
@@ -21,7 +22,14 @@ export function ShootCard({ to, image, title }: ShootCardProps) {
       state={{ from: pathname }}
       className={cx(styles.card, styles.shoot)}
       data-shoot-card=""
-      onClick={() => saveScrollPosition(pathname)}
+      onClick={(event) => {
+        if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) {
+          return;
+        }
+        event.preventDefault();
+        saveScrollPosition(pathname);
+        navigate(to, { state: { from: pathname, scrollY: window.scrollY } });
+      }}
     >
       <img src={image} alt={title} loading="lazy" decoding="async" />
       <div className={styles.shootCopy}>

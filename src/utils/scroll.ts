@@ -12,6 +12,8 @@ export function scrollToY(y: number) {
   const html = document.documentElement;
   const previous = html.style.scrollBehavior;
   html.style.scrollBehavior = "auto";
-  window.scrollTo(0, y);
+  window.scrollTo({ top: y, left: 0, behavior: "auto" });
+  html.scrollTop = y;
+  document.body.scrollTop = y;
   html.style.scrollBehavior = previous;
 }

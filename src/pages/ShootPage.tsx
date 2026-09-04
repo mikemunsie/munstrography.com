@@ -8,6 +8,7 @@ import styles from "./ShootPage.module.css";
 
 type ShootLocationState = {
   from?: string;
+  scrollY?: number;
 };
 
 function shootBack(from: string | undefined) {
@@ -26,7 +27,9 @@ export default function ShootPage() {
     return <Navigate to={RoutePaths.portfolio} replace />;
   }
 
-  const back = shootBack((state as ShootLocationState | null)?.from);
+  const fromState = state as ShootLocationState | null;
+  const back = shootBack(fromState?.from);
+  const backState = { restoreScroll: fromState?.scrollY ?? true };
 
   const dateLabel = formatShootDate(shoot.date);
 
@@ -34,7 +37,13 @@ export default function ShootPage() {
     <>
       <section className={ui.pageHero}>
         <div className={ui.wrap}>
-          <Link to={back.to} state={{ restoreScroll: true }} className={styles.back} aria-label={back.label}>
+          <Link
+            to={back.to}
+            state={backState}
+            preventScrollReset
+            className={styles.back}
+            aria-label={back.label}
+          >
             <svg viewBox="0 0 16 16" aria-hidden="true">
               <path
                 d="M10.25 2.75 4.75 8l5.5 5.25"
@@ -60,7 +69,7 @@ export default function ShootPage() {
         </div>
       </section>
       <ShootAlbum photos={shoot.photos} title={shoot.name} />
-      <Link className={styles.toPortfolio} to={back.to} state={{ restoreScroll: true }}>
+      <Link className={styles.toPortfolio} to={back.to} state={backState} preventScrollReset>
         {back.label}
       </Link>
       <a className={styles.toTop} href="#main">
