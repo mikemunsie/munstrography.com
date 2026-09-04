@@ -49,6 +49,7 @@ export const ABOUT_IMAGE = "/img/me.jpg";
 
 export const HOME_SECTION_IMAGES = {
   intro: "/img/gallery/interior/DSC04860.jpg",
+  introPhoto: "/img/gallery/interior/DSC04860.jpg",
   gallery: "/img/gallery/night/DSC04853.jpg",
   photoscout: "/img/gallery/night/DSC02843-Enhanced-NR-Edit-6-Edit-2.jpg",
   contact: "/img/gallery/night/spotlight.jpg",

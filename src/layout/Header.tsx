@@ -4,6 +4,8 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import { INSTAGRAM_URL, PHOTOSCOUT_URL } from "../data/site";
 import WatermarkWhite from "../images/watermark-white.png";
 import { RoutePaths } from "../routes/paths";
+import { cx } from "../utils/cx";
+import styles from "./Header.module.css";
 
 const LINKS = [
   { to: RoutePaths.home, label: "Home" },
@@ -24,7 +26,7 @@ export default function Header({ solid = false }: HeaderProps) {
   const [pastHero, setPastHero] = useState(!isHome);
 
   useEffect(() => {
-    const hero = isHome ? document.querySelector(".hero") : null;
+    const hero = isHome ? document.querySelector("[data-hero]") : null;
     const rootStyles = getComputedStyle(document.documentElement);
     const headerH = parseFloat(rootStyles.getPropertyValue("--header-h")) || 76;
 
@@ -53,20 +55,16 @@ export default function Header({ solid = false }: HeaderProps) {
     };
   }, [open]);
 
-  const headerClass = ["header", scrolled || solid || open ? "is-scrolled" : "", solid ? "is-solid" : ""]
-    .filter(Boolean)
-    .join(" ");
-
   return (
     <>
-      <a className="skip-link" href="#main">
+      <a className={styles.skip} href="#main">
         Skip to content
       </a>
-      <header className={headerClass}>
-        <div className="header-inner">
+      <header className={cx(styles.header, (scrolled || solid || open) && styles.scrolled, solid && styles.solid)}>
+        <div className={styles.inner}>
           <Link
             to={RoutePaths.home}
-            className={`header-logo${pastHero ? " is-in" : ""}`}
+            className={cx(styles.logo, pastHero && styles.logoIn)}
             aria-label="Munstrography home"
             aria-hidden={!pastHero}
             tabIndex={pastHero ? undefined : -1}
@@ -80,7 +78,7 @@ export default function Header({ solid = false }: HeaderProps) {
           >
             <img src={WatermarkWhite} alt="" />
           </Link>
-          <nav className="nav-desktop" aria-label="Primary">
+          <nav className={styles.desktop} aria-label="Primary">
             {LINKS.map((link) => (
               <NavLink
                 key={link.to}
@@ -88,7 +86,7 @@ export default function Header({ solid = false }: HeaderProps) {
                 end={link.to === RoutePaths.home}
                 className={({ isActive }) =>
                   isActive || (link.to === RoutePaths.work && location.pathname.startsWith("/gallery"))
-                    ? "active"
+                    ? styles.active
                     : undefined
                 }
               >
@@ -101,7 +99,7 @@ export default function Header({ solid = false }: HeaderProps) {
           </nav>
           <button
             type="button"
-            className={`menu-toggle${open ? " is-open" : ""}`}
+            className={cx(styles.toggle, open && styles.toggleOpen)}
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             onClick={() => setOpen((value) => !value)}
@@ -110,7 +108,7 @@ export default function Header({ solid = false }: HeaderProps) {
           </button>
         </div>
       </header>
-      <div className={`nav-mobile${open ? " is-open" : ""}`} aria-hidden={!open} inert={!open}>
+      <div className={cx(styles.mobile, open && styles.mobileOpen)} aria-hidden={!open} inert={!open}>
         <nav aria-label="Mobile">
           {LINKS.map((link) => (
             <NavLink key={link.to} to={link.to} end={link.to === RoutePaths.home} onClick={() => setOpen(false)}>
@@ -121,7 +119,7 @@ export default function Header({ solid = false }: HeaderProps) {
             Instagram
           </a>
         </nav>
-        <div className="nav-meta">
+        <div className={styles.meta}>
           <a href={PHOTOSCOUT_URL} target="_blank" rel="noreferrer">
             Open PhotoScout
           </a>

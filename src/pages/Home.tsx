@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 import { HeroArrow } from "../components/HeroArrow";
 import { LogoParticles } from "../components/LogoParticles";
-import { PhoneShot } from "../components/PhoneShot";
+import { phoneFloat, PhoneShot } from "../components/PhoneShot";
 import { ProjectGrid } from "../components/ProjectCard";
 import { SectionBackdrop, useParallaxImage } from "../components/SectionBackdrop";
 import {
@@ -17,22 +17,20 @@ import {
 import WatermarkWhite from "../images/watermark-white.png";
 import photos from "../photos.json";
 import { RoutePaths } from "../routes/paths";
+import ps from "../styles/photoscout.module.css";
+import ui from "../styles/ui.module.css";
+import { cx } from "../utils/cx";
+import styles from "./Home.module.css";
 
 const counts = Object.fromEntries(GALLERIES.map((gallery) => [gallery.slug, photos[gallery.slug]?.length ?? 0]));
 
-const totalPhotos = Object.values(counts).reduce((sum, count) => sum + count, 0);
-
-function sectionClass(src?: string) {
-  return src ? "section section-photo" : "section";
-}
-
 export default function Home() {
-  const heroImgRef = useParallaxImage(".hero");
+  const heroImgRef = useParallaxImage("[data-hero]");
 
   return (
     <>
-      <section className="hero">
-        <div className="hero-media">
+      <section className={styles.hero} data-hero>
+        <div className={styles.media}>
           <img
             ref={heroImgRef}
             src={HERO_IMAGE}
@@ -41,16 +39,17 @@ export default function Home() {
             decoding="async"
           />
         </div>
-        <div className="hero-logo-stage">
-          <div className="hero-logo-cluster">
+        <div className={styles.stage}>
+          <div className={styles.cluster}>
             <LogoParticles />
-            <h1 className="hero-logo reveal">
+            <h1 className={cx(styles.logo, styles.reveal)}>
               <img src={WatermarkWhite} alt="Munstrography" />
             </h1>
+            <p className={cx(styles.tagline, styles.reveal)}>Automotive Photographer</p>
           </div>
         </div>
-        <div className="hero-copy reveal">
-          <a className="hero-scroll" href="#work">
+        <div className={cx(styles.copy, styles.reveal)}>
+          <a className={styles.scroll} href="#work">
             <i />
             View my Work
           </a>
@@ -58,14 +57,17 @@ export default function Home() {
         <HeroArrow />
       </section>
 
-      <section className={sectionClass(HOME_SECTION_IMAGES.intro)} id="intro">
+      <section
+        className={cx(ui.section, HOME_SECTION_IMAGES.intro && ui.sectionPhoto)}
+        id="intro"
+        data-section-photo=""
+      >
         <SectionBackdrop src={HOME_SECTION_IMAGES.intro} objectPosition="center 78%" />
-        <div className="wrap intro-grid">
+        <div className={cx(ui.wrap, styles.intro)}>
           <div>
-            <p className="kicker">Photographer. Developer. Car enthusiast.</p>
-            <h2 className="display intro-title">Hello World.</h2>
-            <div className="intro-copy">
-              <p className="lede">
+            <h2 className={cx(ui.display, styles.title)}>Hello World.</h2>
+            <div className={styles.introCopy}>
+              <p className={ui.lede}>
                 Munstrography is a play on my last name and the thing I can&apos;t stop doing: making art with my
                 camera. I shoot in DFW and primarily in the night.
               </p>
@@ -76,59 +78,56 @@ export default function Home() {
               <Link to={RoutePaths.about}>Read the story</Link>
             </div>
           </div>
-          <div className="intro-stat">
-            <div>
-              <strong>6</strong>
-              <span>Years of experience</span>
-            </div>
-            <div>
-              <strong>150+</strong>
-              <span>Shoots</span>
-            </div>
-            <div>
-              <strong>DFW</strong>
-              <span>Based in Texas</span>
-            </div>
-            <div>
-              <strong>Night</strong>
-              <span>Preferred</span>
-            </div>
-          </div>
+          <Link className={styles.photo} to="/gallery/night">
+            <img
+              src={HOME_SECTION_IMAGES.introPhoto}
+              alt="Volkswagen Beetle in the rain at night"
+              loading="lazy"
+              decoding="async"
+            />
+          </Link>
         </div>
       </section>
 
-      <section className={sectionClass(HOME_SECTION_IMAGES.gallery)} id="work">
+      <section
+        className={cx(ui.section, HOME_SECTION_IMAGES.gallery && ui.sectionPhoto)}
+        id="work"
+        data-section-photo=""
+      >
         <SectionBackdrop src={HOME_SECTION_IMAGES.gallery} objectPosition="center 75%" />
-        <div className="wrap">
-          <div className="section-head split">
+        <div className={ui.wrap}>
+          <div className={cx(ui.sectionHead, ui.split)}>
             <div>
-              <p className="kicker">Portfolio</p>
-              <h2 className="display">Gallery</h2>
+              <h2 className={ui.display}>Gallery</h2>
             </div>
           </div>
           <ProjectGrid counts={counts} />
-          <div className="btn-row stack-lg">
-            <Link className="btn" to={RoutePaths.work}>
+          <div className={cx(ui.btnRow, ui.stackLg)}>
+            <Link className={ui.btn} to={RoutePaths.work}>
               Browse all galleries
             </Link>
           </div>
         </div>
       </section>
 
-      <section className={sectionClass(HOME_SECTION_IMAGES.photoscout)} id="photoscout">
+      <section
+        className={cx(ui.section, HOME_SECTION_IMAGES.photoscout && ui.sectionPhoto)}
+        id="photoscout"
+        data-section-photo=""
+      >
         <SectionBackdrop src={HOME_SECTION_IMAGES.photoscout} objectPosition="center 58%" />
-        <div className="wrap">
-          <div className="photoscout">
-            <div className="photoscout-copy">
-              <p className="kicker">App</p>
-              <h2 className="display photoscout-logo">
+        <div className={ui.wrap}>
+          <div className={ps.panel}>
+            <div className={ps.copy}>
+              <p className={ui.kicker}>App</p>
+              <h2 className={cx(ui.display, ps.logo)}>
                 <img src={PHOTOSCOUT_LOGO} alt="PhotoScout" />
               </h2>
-              <p className="lede">
+              <p className={ui.lede}>
                 Let&apos;s scout the best spots. Map locations, build lists with other shooters, and keep a living
                 notebook of places worth returning to.
               </p>
-              <div className="feature-list">
+              <div className={ps.features}>
                 {PHOTOSCOUT_FEATURES.map((feature) => (
                   <div key={feature.title}>
                     <h3>{feature.title}</h3>
@@ -136,18 +135,18 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-              <div className="btn-row">
-                <a className="btn" href={PHOTOSCOUT_APP_STORE_URL} target="_blank" rel="noreferrer">
+              <div className={ui.btnRow}>
+                <a className={ui.btn} href={PHOTOSCOUT_APP_STORE_URL} target="_blank" rel="noreferrer">
                   App Store
                 </a>
-                <Link className="btn ghost" to={RoutePaths.photoscout}>
+                <Link className={cx(ui.btn, ui.ghost)} to={RoutePaths.photoscout}>
                   Learn more
                 </Link>
               </div>
             </div>
-            <div className="photoscout-media photoscout-media--device">
+            <div className={cx(ps.media, ps.device)}>
               <PhoneShot
-                className="phone--float"
+                className={phoneFloat}
                 src={PHOTOSCOUT_IMAGE}
                 alt="PhotoScout map of photo locations in Dallas"
               />

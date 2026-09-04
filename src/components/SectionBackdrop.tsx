@@ -1,5 +1,7 @@
 import { useLayoutEffect, useRef } from "react";
 
+import styles from "./SectionBackdrop.module.css";
+
 type SectionBackdropProps = {
   src?: string;
   objectPosition?: string;
@@ -100,12 +102,12 @@ export function useParallaxImage(frameSelector: string) {
 }
 
 export function SectionBackdrop({ src, objectPosition = "center center" }: SectionBackdropProps) {
-  const imgRef = useParallaxImage(".section-photo");
+  const imgRef = useParallaxImage("[data-section-photo]");
 
   if (!src) return null;
 
   return (
-    <div className="section-media" aria-hidden="true">
+    <div className={styles.media} aria-hidden="true">
       <img
         ref={imgRef}
         src={src}

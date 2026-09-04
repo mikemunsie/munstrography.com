@@ -1,0 +1,53 @@
+.arrow {
+  position: absolute;
+  z-index: 2;
+  right: var(--pad);
+  bottom: clamp(1.75rem, 5vh, 3.25rem);
+  width: 72px;
+  height: 88px;
+  display: grid;
+  place-items: center;
+  animation: bob 2.6s var(--ease) infinite;
+}
+
+.icon {
+  width: 34px;
+  height: 40px;
+  fill: none;
+  stroke: rgba(236, 248, 255, 0.72);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 10px rgba(145, 205, 255, 0.35));
+  pointer-events: none;
+  transition: stroke 0.25s var(--ease), filter 0.25s var(--ease);
+}
+
+.arrow:hover .icon,
+.arrow:focus-visible .icon {
+  stroke: rgba(244, 241, 234, 0.92);
+  filter: drop-shadow(0 0 14px rgba(145, 205, 255, 0.55));
+}
+
+.arrow:focus-visible {
+  outline: 1px solid var(--text);
+  outline-offset: 6px;
+}
+
+@keyframes bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(7px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arrow {
+    animation: none;
+    transform: none;
+  }
+}

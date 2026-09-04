@@ -1,4 +1,6 @@
 import { INSTAGRAM_URL, PHOTOSCOUT_APP_STORE_URL } from "../data/site";
+import ui from "../styles/ui.module.css";
+import styles from "./Social.module.css";
 
 const LINKS = [
   { label: "Gallery", href: "/" },
@@ -9,15 +11,15 @@ const LINKS = [
 
 export default function Social() {
   return (
-    <div className="social-page">
-      <div className="social-card">
+    <div className={styles.page}>
+      <div className={styles.card}>
         <img src="/img/instagram-profile.jpg" alt="Munstrography" />
         <h1>Munstrography</h1>
         <p>Car photographer & enthusiast. DFW-based. Available for shoots.</p>
         {LINKS.map(({ label, href }) => (
           <a
             key={label}
-            className="btn"
+            className={ui.btn}
             href={href}
             target={href.startsWith("/") ? undefined : "_blank"}
             rel="noreferrer"
@@ -25,7 +27,7 @@ export default function Social() {
             {label}
           </a>
         ))}
-        <p style={{ marginTop: "1.5rem", fontSize: "0.8rem" }}>© {new Date().getFullYear()} Munstrography</p>
+        <p className={styles.fine}>© {new Date().getFullYear()} Munstrography</p>
       </div>
     </div>
   );

@@ -5,6 +5,7 @@ import { GalleryFilter } from "../components/ProjectCard";
 import { getGallery } from "../data/site";
 import photos from "../photos.json";
 import { RoutePaths } from "../routes/paths";
+import ui from "../styles/ui.module.css";
 
 export default function GalleryPage() {
   const { gallery: slug } = useParams();
@@ -17,11 +18,11 @@ export default function GalleryPage() {
 
   return (
     <>
-      <section className="page-hero">
-        <div className="wrap">
-          <p className="kicker">{meta.kicker}</p>
-          <h1 className="display">{meta.title}</h1>
-          <p className="lede">{meta.description}</p>
+      <section className={ui.pageHero}>
+        <div className={ui.wrap}>
+          <p className={ui.kicker}>{meta.kicker}</p>
+          <h1 className={ui.display}>{meta.title}</h1>
+          <p className={ui.lede}>{meta.description}</p>
           <GalleryFilter />
         </div>
       </section>

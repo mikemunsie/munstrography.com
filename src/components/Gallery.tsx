@@ -8,6 +8,8 @@ import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
 import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 
+import styles from "./Gallery.module.css";
+
 export type Photo = {
   src: string;
   width: number;
@@ -22,7 +24,7 @@ export default function Gallery({ photos }: GalleryProps) {
   const [index, setIndex] = useState(-1);
 
   return (
-    <div className="album">
+    <div className={styles.album}>
       <PhotoAlbum
         layout="rows"
         photos={photos}

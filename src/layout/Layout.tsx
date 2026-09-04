@@ -5,6 +5,7 @@ import { HOME_SECTION_IMAGES } from "../data/site";
 import AppRoutes from "../routes/Routes";
 import Footer, { ContactBand } from "./Footer";
 import Header from "./Header";
+import styles from "./Layout.module.css";
 
 export default function Layout() {
   const location = useLocation();
@@ -15,9 +16,9 @@ export default function Layout() {
   }, [location.pathname]);
 
   return (
-    <div className="site">
+    <div className={styles.site}>
       <Header solid={!isHome} />
-      <main id="main" className="site-main">
+      <main id="main" className={styles.main}>
         <AppRoutes />
       </main>
       <ContactBand background={isHome ? HOME_SECTION_IMAGES.contact : undefined} />

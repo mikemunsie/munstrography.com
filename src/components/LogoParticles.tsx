@@ -1,5 +1,7 @@
 import { useEffect, useRef } from "react";
 
+import styles from "./LogoParticles.module.css";
+
 type Particle = {
   x: number;
   y: number;
@@ -277,5 +279,5 @@ export function LogoParticles() {
     };
   }, []);
 
-  return <canvas ref={canvasRef} className="hero-particles" aria-hidden />;
+  return <canvas ref={canvasRef} className={styles.canvas} aria-hidden />;
 }
