@@ -16,6 +16,7 @@ export default function Footer() {
           <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer">
             Instagram
           </a>
+          <Link to={RoutePaths.portfolio}>Portfolio</Link>
           <a href={PHOTOSCOUT_APP_STORE_URL} target="_blank" rel="noreferrer">
             PhotoScout
           </a>
@@ -35,8 +36,6 @@ export function ContactBand({ background }: { background?: string }) {
     >
       {background ? <SectionBackdrop src={background} objectPosition="center 48%" /> : null}
       <div className={ui.wrap}>
-        <p className={ui.kicker}>Get in touch</p>
-        <h2 className={ui.display}>Let&apos;s make art.</h2>
         <div className={styles.meta}>
           <span>Michael Munsie</span>
           <span>Automotive photographer · DFW</span>

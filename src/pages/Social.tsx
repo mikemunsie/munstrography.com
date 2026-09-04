@@ -3,7 +3,7 @@ import ui from "../styles/ui.module.css";
 import styles from "./Social.module.css";
 
 const LINKS = [
-  { label: "Gallery", href: "/" },
+  { label: "Portfolio", href: "/portfolio" },
   { label: "PhotoScout", href: PHOTOSCOUT_APP_STORE_URL },
   { label: "Instagram", href: INSTAGRAM_URL },
   { label: "Venmo", href: "https://account.venmo.com/u/munstrography" },

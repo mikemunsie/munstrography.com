@@ -19,10 +19,6 @@ export default function PhotoScout() {
           <h1 className={cx(ui.display, ps.logo, ps.logoPage)}>
             <img src={PHOTOSCOUT_LOGO} alt="PhotoScout" />
           </h1>
-          <p className={ui.lede}>
-            Let&apos;s scout the best spots. Discover, save, and share great places to shoot — maps, lists, and
-            community activity in one app, so you spend less time hunting and more time shooting.
-          </p>
           <div className={cx(ui.btnRow, ui.stackLg)}>
             <a className={ui.btn} href={PHOTOSCOUT_APP_STORE_URL} target="_blank" rel="noreferrer">
               Download on the App Store
@@ -51,7 +47,7 @@ export default function PhotoScout() {
           <div className={ps.panel}>
             <div className={ps.copy}>
               <p className={ui.kicker}>Why it exists</p>
-              <h2 className={cx(ui.display, ps.heading)}>Built from the same nights as the galleries.</h2>
+              <h2 className={cx(ui.display, ps.heading)}>Find and share great places to shoot.</h2>
               <p className={ui.lede}>
                 The best frames start with a place. PhotoScout is the notebook I wanted while driving around DFW looking
                 for light, reflections, and empty lots — then sharing those pins with other photographers.
@@ -64,7 +60,7 @@ export default function PhotoScout() {
                   </div>
                 ))}
               </div>
-              <div className={ui.btnRow}>
+              <div className={cx(ui.btnRow, ps.actions)}>
                 <a className={ui.btn} href={PHOTOSCOUT_APP_STORE_URL} target="_blank" rel="noreferrer">
                   App Store
                 </a>

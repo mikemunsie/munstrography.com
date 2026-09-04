@@ -11,7 +11,6 @@ export default function About() {
           <img src={ABOUT_IMAGE} alt="Michael Munsie" />
         </div>
         <div className={styles.copy}>
-          <h1 className={ui.display}>My Story</h1>
           <p className={ui.lede}>
             Munstrography is a play on my last name + photography. I am a software developer by day and a photographer
             by night. Happily married and a proud father to a few crazy cats. Car enthusiast, lover of birria tacos,

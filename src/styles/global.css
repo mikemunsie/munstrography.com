@@ -10,7 +10,7 @@
   --overlay: rgba(8, 8, 8, 0.42);
   --header-h: 76px;
   --pad: clamp(1.25rem, 4vw, 3.5rem);
-  --max: 1280px;
+  --max: 1400px;
   --font-display: "DM Sans", "Helvetica Neue", sans-serif;
   --font-body: "DM Sans", "Helvetica Neue", sans-serif;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -84,7 +84,7 @@ p {
 }
 
 #intro,
-#work,
+#portfolio,
 #photoscout,
 #contact {
   scroll-margin-top: var(--header-h);
@@ -106,9 +106,4 @@ img.is-parallax {
     animation: none !important;
     transition: none !important;
   }
-}
-
-.yarl__root {
-  --yarl__color_backdrop: #050505;
-  z-index: 200;
 }

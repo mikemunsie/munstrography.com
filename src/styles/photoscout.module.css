@@ -13,10 +13,21 @@
 }
 
 .copy {
-  padding: clamp(2rem, 5vw, 4rem);
+  --copy-pad: clamp(2rem, 5vw, 4rem);
+  padding-block: var(--copy-pad);
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.copy > :not(.actions) {
+  margin-inline: var(--copy-pad);
+}
+
+@media (min-width: 700px) {
+  .copy > .actions {
+    margin-inline: var(--copy-pad);
+  }
 }
 
 .copy h2 {

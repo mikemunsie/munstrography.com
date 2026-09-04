@@ -1,69 +1,38 @@
 import { NavLink } from "react-router-dom";
 
-import { GALLERIES } from "../data/site";
-import { RoutePaths } from "../routes/paths";
-import ui from "../styles/ui.module.css";
+import { type PortfolioShoot } from "../data/portfolio";
+import { cx } from "../utils/cx";
 import styles from "./ProjectCard.module.css";
 
-type ProjectCardProps = {
+type ShootCardProps = {
   to: string;
   image: string;
-  kicker: string;
   title: string;
-  meta?: string;
 };
 
-export function ProjectCard({ to, image, kicker, title, meta }: ProjectCardProps) {
+export function ShootCard({ to, image, title }: ShootCardProps) {
   return (
-    <NavLink to={to} className={styles.card}>
+    <NavLink to={to} className={cx(styles.card, styles.shoot)}>
       <img src={image} alt={title} loading="lazy" decoding="async" />
-      <div className={styles.copy}>
-        <p className={ui.kicker}>{kicker}</p>
+      <div className={styles.shootCopy}>
         <h3>{title}</h3>
-        <span className={styles.view}>{meta ?? "View gallery"}</span>
+        <i />
+        <span>Click to view</span>
       </div>
     </NavLink>
   );
 }
 
-type ProjectGridProps = {
-  counts: Record<string, number>;
-  variant?: "featured" | "work";
+type ShootGridProps = {
+  shoots: PortfolioShoot[];
 };
 
-export function ProjectGrid({ counts: _counts, variant = "featured" }: ProjectGridProps) {
+export function ShootGrid({ shoots }: ShootGridProps) {
   return (
-    <div className={variant === "work" ? styles.work : styles.grid}>
-      {GALLERIES.map((gallery) => {
-        return (
-          <ProjectCard
-            key={gallery.slug}
-            to={`/gallery/${gallery.slug}`}
-            image={gallery.cover}
-            kicker={gallery.kicker}
-            title={gallery.title}
-          />
-        );
-      })}
-    </div>
-  );
-}
-
-export function GalleryFilter() {
-  return (
-    <nav className={styles.nav} aria-label="Galleries">
-      <NavLink to={RoutePaths.work} end className={({ isActive }) => (isActive ? styles.navActive : undefined)}>
-        All
-      </NavLink>
-      {GALLERIES.map((gallery) => (
-        <NavLink
-          key={gallery.slug}
-          to={`/gallery/${gallery.slug}`}
-          className={({ isActive }) => (isActive ? styles.navActive : undefined)}
-        >
-          {gallery.title}
-        </NavLink>
+    <div className={styles.grid}>
+      {shoots.map((shoot) => (
+        <ShootCard key={shoot.slug} to={`/portfolio/${shoot.slug}`} image={shoot.cover} title={shoot.name} />
       ))}
-    </nav>
+    </div>
   );
 }

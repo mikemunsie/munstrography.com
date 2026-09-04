@@ -49,5 +49,11 @@ export default tseslint.config(
       ],
     },
   },
+  {
+    files: ["vite.config.ts", "vite-plugin-portfolio.ts"],
+    languageOptions: {
+      globals: globals.node,
+    },
+  },
   prettier
 );

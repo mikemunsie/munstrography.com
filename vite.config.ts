@@ -2,8 +2,10 @@ import react from "@vitejs/plugin-react";
 
 import { defineConfig } from "vite";
 
+import { portfolioPlugin } from "./vite-plugin-portfolio";
+
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), portfolioPlugin()],
   server: {
     port: 3001,
     host: true,

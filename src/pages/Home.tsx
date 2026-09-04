@@ -3,11 +3,12 @@ import { Link } from "react-router-dom";
 import { HeroArrow } from "../components/HeroArrow";
 import { LogoParticles } from "../components/LogoParticles";
 import { phoneFloat, PhoneShot } from "../components/PhoneShot";
-import { ProjectGrid } from "../components/ProjectCard";
+import { ShootGrid } from "../components/ProjectCard";
 import { SectionBackdrop, useParallaxImage } from "../components/SectionBackdrop";
+import { getShootsByFolder } from "../data/portfolio";
 import {
-  GALLERIES,
   HERO_IMAGE,
+  HOME_PORTFOLIO_SHOOTS,
   HOME_SECTION_IMAGES,
   PHOTOSCOUT_APP_STORE_URL,
   PHOTOSCOUT_FEATURES,
@@ -15,14 +16,13 @@ import {
   PHOTOSCOUT_LOGO,
 } from "../data/site";
 import WatermarkWhite from "../images/watermark-white.png";
-import photos from "../photos.json";
 import { RoutePaths } from "../routes/paths";
 import ps from "../styles/photoscout.module.css";
 import ui from "../styles/ui.module.css";
 import { cx } from "../utils/cx";
 import styles from "./Home.module.css";
 
-const counts = Object.fromEntries(GALLERIES.map((gallery) => [gallery.slug, photos[gallery.slug]?.length ?? 0]));
+const featuredShoots = getShootsByFolder(HOME_PORTFOLIO_SHOOTS);
 
 export default function Home() {
   const heroImgRef = useParallaxImage("[data-hero]");
@@ -49,7 +49,7 @@ export default function Home() {
           </div>
         </div>
         <div className={cx(styles.copy, styles.reveal)}>
-          <a className={styles.scroll} href="#work">
+          <a className={styles.scroll} href="#portfolio">
             <i />
             View my Work
           </a>
@@ -78,7 +78,7 @@ export default function Home() {
               <Link to={RoutePaths.about}>Read the story</Link>
             </div>
           </div>
-          <Link className={styles.photo} to="/gallery/night">
+          <Link className={styles.photo} to={RoutePaths.portfolio}>
             <img
               src={HOME_SECTION_IMAGES.introPhoto}
               alt="Volkswagen Beetle in the rain at night"
@@ -89,22 +89,13 @@ export default function Home() {
         </div>
       </section>
 
-      <section
-        className={cx(ui.section, HOME_SECTION_IMAGES.gallery && ui.sectionPhoto)}
-        id="work"
-        data-section-photo=""
-      >
-        <SectionBackdrop src={HOME_SECTION_IMAGES.gallery} objectPosition="center 75%" />
+      <section className={cx(ui.section)} id="portfolio" data-section-photo="">
+        <SectionBackdrop objectPosition="center 55%" />
         <div className={ui.wrap}>
-          <div className={cx(ui.sectionHead, ui.split)}>
-            <div>
-              <h2 className={ui.display}>Gallery</h2>
-            </div>
-          </div>
-          <ProjectGrid counts={counts} />
+          <ShootGrid shoots={featuredShoots} />
           <div className={cx(ui.btnRow, ui.stackLg)}>
-            <Link className={ui.btn} to={RoutePaths.work}>
-              Browse all galleries
+            <Link className={ui.btn} to={RoutePaths.portfolio}>
+              Browse all shoots
             </Link>
           </div>
         </div>
@@ -135,7 +126,7 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-              <div className={ui.btnRow}>
+              <div className={cx(ui.btnRow, ps.actions)}>
                 <a className={ui.btn} href={PHOTOSCOUT_APP_STORE_URL} target="_blank" rel="noreferrer">
                   App Store
                 </a>

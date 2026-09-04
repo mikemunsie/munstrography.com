@@ -9,7 +9,7 @@ import styles from "./Header.module.css";
 
 const LINKS = [
   { to: RoutePaths.home, label: "Home" },
-  { to: RoutePaths.work, label: "Work" },
+  { to: RoutePaths.portfolio, label: "Portfolio" },
   { to: RoutePaths.photoscout, label: "PhotoScout" },
   { to: RoutePaths.about, label: "About" },
 ] as const;
@@ -86,11 +86,7 @@ export default function Header({ solid = false }: HeaderProps) {
                 key={link.to}
                 to={link.to}
                 end={link.to === RoutePaths.home}
-                className={({ isActive }) =>
-                  isActive || (link.to === RoutePaths.work && location.pathname.startsWith("/gallery"))
-                    ? styles.active
-                    : undefined
-                }
+                className={({ isActive }) => (isActive ? styles.active : undefined)}
               >
                 {link.label}
               </NavLink>
