@@ -17,3 +17,20 @@ export function scrollToY(y: number) {
   document.body.scrollTop = y;
   html.style.scrollBehavior = previous;
 }
+
+export function scrollToId(id: string, behavior: ScrollBehavior = "auto") {
+  const el = document.getElementById(id);
+  if (!el) return false;
+
+  if (behavior === "smooth") {
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+    return true;
+  }
+
+  const html = document.documentElement;
+  const previous = html.style.scrollBehavior;
+  html.style.scrollBehavior = "auto";
+  el.scrollIntoView({ behavior: "auto", block: "start" });
+  html.style.scrollBehavior = previous;
+  return true;
+}

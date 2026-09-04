@@ -3,7 +3,7 @@ import { useLocation, useNavigationType } from "react-router-dom";
 
 import { HOME_SECTION_IMAGES } from "../data/site";
 import AppRoutes from "../routes/Routes";
-import { getScrollPosition, saveScrollPosition, scrollToY } from "../utils/scroll";
+import { getScrollPosition, saveScrollPosition, scrollToId, scrollToY } from "../utils/scroll";
 import Footer, { ContactBand } from "./Footer";
 import Header from "./Header";
 import styles from "./Layout.module.css";
@@ -40,7 +40,14 @@ export default function Layout() {
   }, []);
 
   useLayoutEffect(() => {
-    if (location.hash) return;
+    if (location.hash) {
+      const id = decodeURIComponent(location.hash.slice(1));
+      const behavior = navigationType === "PUSH" ? "smooth" : "auto";
+      const applyHash = () => scrollToId(id, behavior);
+      applyHash();
+      const raf = requestAnimationFrame(applyHash);
+      return () => cancelAnimationFrame(raf);
+    }
 
     const y = scrollTarget(location.state as LocationState | null, navigationType, location.pathname);
     let cancelled = false;
