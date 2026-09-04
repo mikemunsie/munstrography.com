@@ -39,11 +39,18 @@ export default function Home() {
             decoding="async"
           />
         </div>
+        <LogoParticles />
         <div className={styles.stage}>
           <div className={styles.cluster}>
-            <LogoParticles />
-            <h1 className={cx(styles.logo, styles.reveal)}>
-              <img src={WatermarkWhite} alt="Munstrography" />
+            <h1 className={cx(styles.logo, styles.reveal)} data-hero-logo="">
+              <span className={styles.halves}>
+                <span className={styles.half} data-side="left" aria-hidden="true">
+                  <img src={WatermarkWhite} alt="" />
+                </span>
+                <span className={styles.half} data-side="right">
+                  <img src={WatermarkWhite} alt="Munstrography" />
+                </span>
+              </span>
             </h1>
             <p className={cx(styles.tagline, styles.reveal)}>Automotive Photographer</p>
           </div>
